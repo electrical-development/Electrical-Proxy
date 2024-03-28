@@ -6,7 +6,7 @@ This repository can be hosted on any static host, such as GitHub Pages, Vercel, 
 
 To change the Bare server, clone the repository and edit the `uv/uv.config.js` file. There is a property marked by a comment that can be changed to your Bare server if desired.
 
-There have been comments placed throughout the code to attempt to help people who are new to coding better understand how the inner workings of a proxy website function.
+There have been comments placed throughout the code to attempt to help people who are new to coding better understand the inner workings of a proxy website and how they function.
 
 ### Credits
 This repository uses Ultraviolet as the main proxy, which was created by Titanium Network. The frontend design was also inspired by their official demo page.
