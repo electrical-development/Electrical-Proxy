@@ -16,4 +16,6 @@ I wrote the styles and JavaScript for the frontend.
 The AGPL-3 license is used on this repository. This means you must disclose the original source when making changes or redistributing. The best way to do this is not to remove or change the footer on the website. It's good to provide credit to the people who provided the software for you.
 
 ### Support
-For support, please do not contact Titanium Network, they most likely will not help you. Instead, join my [Discord server](https://discord.gg/desmos) or DM me on Discord `@proudparrot2`.
+For support, please do not contact Titanium Network, they most likely will not help you. Instead, [open an issue](https://github.com/proudparrot2/ultraviolet/issues/new).
+
+You can also join my [Discord server](https://discord.gg/desmos) or DM me on Discord `@proudparrot2`.
