@@ -1,0 +1,25 @@
+<body>
+  <div class="container">
+    <h1 class="header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <!-- SVG path here -->
+      </svg>
+      Games - Electrical Proxies
+    </h1>
+    <p class="description">Your description here</p>
+    <!-- Add your content here -->
+  </div>
+
+  <div class="footer">
+    <div>
+      <img src="./assets/favicon.png" class="logo">
+    </div>
+    <div>
+      <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
+      <a href="https://github.com/titaniumnetwork-dev/ultraviolet" target="_blank">Ultraviolet</a>
+    </div>
+  </div>
+
+  <script src="./assets/script.js" defer></script>
+</body>
