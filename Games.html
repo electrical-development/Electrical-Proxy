@@ -1,31 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
- <title>Electrical Games</title>
-
- <!-- Meta tags for SEO -->
- <meta property="og:title" content="Electrical Games">
- <meta property="og:description" content="are you bored?">
- <meta property="og:image" content="/assets/favicon.png">
- <meta property="og:url" content="https://i-have-a-prox.cyou/games">
- <meta name="theme-color" content="#262262" />
-
- <!-- Styles and fonts -->
+ <title>Games - Electrical Proxies</title>
  <link rel="stylesheet" href="./assets/style.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
- <!-- Scripts -->
- <script src="./uv/uv.bundle.js"></script>
- <script src="./uv/uv.config.js"></script>
- <script src="./assets/register-sw.js"></script>
 </head>
-
 <body>
  <div class="container">
     <h1 class="header">
@@ -33,10 +14,9 @@
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
         <!-- SVG path here -->
       </svg>
-      Electrical Games
+      Games - Electrical Proxies
     </h1>
-    <p class="description">are you bored?</p>
-    <!-- Add your content here -->
+    <div id="gamesList"></div>
  </div>
 
  <div class="footer">
@@ -49,7 +29,45 @@
     </div>
  </div>
 
- <script src="./assets/script.js" defer></script>
-</body>
+ <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const gamesData = [
+        {
+          "link": "Games/achievementunlocked/achievementunlocked/index.html",
+          "imgSrc": "Games/achievementunlocked/achievementunlocked/achievementunlocked.png",
+          "title": "1"
+        },
+        {
+          "link": "projects/1v1space/index.html",
+          "imgSrc": "projects/1v1space/splash.png",
+          "title": "1v1.space"
+        }
+      ];
 
+      const gamesList = document.getElementById("gamesList");
+
+      gamesData.forEach(game => {
+        const gameElement = document.createElement("div");
+        gameElement.className = "game";
+
+        const imgElement = document.createElement("img");
+        imgElement.src = game.imgSrc;
+        imgElement.alt = game.title;
+
+        const titleElement = document.createElement("h2");
+        titleElement.textContent = game.title;
+
+        const linkElement = document.createElement("a");
+        linkElement.href = game.link;
+        linkElement.textContent = "Play";
+
+        gameElement.appendChild(imgElement);
+        gameElement.appendChild(titleElement);
+        gameElement.appendChild(linkElement);
+
+        gamesList.appendChild(gameElement);
+      });
+    });
+ </script>
+</body>
 </html>
