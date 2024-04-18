@@ -1,5 +1,7 @@
 /* Some styling to make it look good */
 
+/* Some styling to make it look good */
+
 * {
  margin: 0;
  padding: 0;
@@ -11,13 +13,19 @@ body {
  height: 100vh;
  width: 100vw;
  font-family: 'IBM Plex Sans';
+ display: flex; /* Add this */
+ justify-content: center; /* Add this */
+ align-items: center; /* Add this */
 }
 
 .container {
- position: absolute;
- left: 50%;
- top: 50%;
- transform: translate(-50%, -50%);
+ display: flex;
+ flex-wrap: wrap; /* Enables wrapping of items */
+ justify-content: center; /* Centers items horizontally */
+ align-items: center;
+ gap: 18px;
+ padding: 20px; /* Adds some padding around the container */
+}
 
  text-align: center;
 
