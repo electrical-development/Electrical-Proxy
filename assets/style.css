@@ -141,8 +141,8 @@ body {
 
 .games-button {
  position: absolute;
- top: 150px; /* Adjust this value as needed to position the button from the top edge */
- left: 150px; /* Adjust this value as needed to position the button from the left edge */
+ top: 10px; /* Adjust this value as needed to position the button from the top edge */
+ right: 10px; /* Adjust this value as needed to position the button from the left edge */
  font-family: 'IBM Plex Sans', sans-serif;
  font-weight: 500;
  color: #ffffff;
