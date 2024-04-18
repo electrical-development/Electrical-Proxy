@@ -45,6 +45,7 @@ body {
  font-size: 16px;
  color: #afafaf;
  margin-top: 10px; 
+ text-align: center; /* Ensure the text is centered */
 }
 
 /* Input Styles */
@@ -128,9 +129,11 @@ body {
  text-align: center;
 }
 
+/* Header Container Styles */
 .header-container {
  display: flex;
  flex-direction: column;
  align-items: center;
+ justify-content: center; /* Centers the children vertically */
  text-align: center; /* Ensures text within the container is centered */
 }
