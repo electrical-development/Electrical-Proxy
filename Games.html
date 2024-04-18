@@ -7,27 +7,38 @@
  <title>Electrical Games</title>
  <link rel="stylesheet" href="./assets/style.css">
  <style>
-   .flex-container {
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     gap: 20px; /* Adjust the gap between items as needed */
-   }
-   .game {
-     width: 300px; /* Adjust this value as needed */
-     height: 400px; /* Adjust this value as needed */
-     border-radius: 30px; /* Optional: to match the example's style */
-     background-color: #949494; /* Optional: to match the example's style */
-     margin: 10px; /* Add some margin around each game for spacing */
-     display: flex;
-     flex-direction: column;
-     align-items: center;
-     justify-content: center;
-   }
-   .game-image {
-     width: 100%; /* Make the image take the full width of its parent */
-     height: auto; /* Maintain the aspect ratio */
-   }
+   .container {
+ padding: 0;
+}
+
+.header {
+ text-align: center;
+ margin-bottom: 20px; 
+}
+
+.flex-container {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: center;
+ gap: 20px; 
+}
+
+.game {
+ width: 300px;
+ height: 400px;
+ border-radius: 30px;
+ background-color: #949494;
+ margin: 10px; 
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ justify-content: center;
+}
+
+.game-image {
+ width: 100%;
+ height: auto; 
+}
  </style>
 </head>
 <body>
@@ -66,7 +77,7 @@
         const imgElement = document.createElement("img");
         imgElement.src = game.imgSrc;
         imgElement.alt = game.title;
-        imgElement.className = "game-image"; // Assign the class to the image
+        imgElement.className = "game-image";
 
         const titleElement = document.createElement("h2");
         titleElement.textContent = game.title;
