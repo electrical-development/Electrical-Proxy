@@ -134,3 +134,7 @@ body {
  align-items: center;
  margin-bottom: 20px; /* Adds some space between games */
 }
+
+.center-text {
+ text-align: center;
+}
