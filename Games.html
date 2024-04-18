@@ -5,9 +5,10 @@
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
  <title>Electrical Games</title>
+ <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
- <div class="container" style="display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 18px; padding: 20px;">
+ <div class="container">
     <h1 class="header">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
@@ -38,9 +39,6 @@
       gamesData.forEach(game => {
         const gameElement = document.createElement("div");
         gameElement.className = "game";
-        gameElement.style.flex = "1 1 200px"; // Inline style for flex
-        gameElement.style.margin = "10px"; // Inline style for margin
-        gameElement.style.textAlign = "center"; // Inline style for text alignment
 
         const imgElement = document.createElement("img");
         imgElement.src = game.imgSrc;
