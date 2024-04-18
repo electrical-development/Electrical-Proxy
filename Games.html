@@ -11,6 +11,17 @@
  padding: 0;
 }
 
+.header {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ text-align: center;
+ margin-bottom: 20px;
+ z-index: 1000;
+ background-color: #fff;
+}
+
 .flex-container {
  display: flex;
  flex-wrap: wrap;
@@ -38,6 +49,13 @@
 </head>
 <body>
  <div class="container">
+    <h1 class="header">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+        <!-- SVG path here -->
+      </svg>
+      Electrical Games
+    </h1>
     <div id="gamesList" class="flex-container"></div>
  </div>
 
