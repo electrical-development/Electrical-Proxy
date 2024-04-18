@@ -1,10 +1,8 @@
-/* Some styling to make it look good */
-
-/* Some styling to make it look good */
-
+/* Reset and Basic Styles */
 * {
  margin: 0;
  padding: 0;
+ box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
 }
 
 body {
@@ -12,32 +10,23 @@ body {
  color: white;
  height: 100vh;
  width: 100vw;
- font-family: 'IBM Plex Sans';
- display: flex; /* Add this */
- justify-content: center; /* Add this */
- align-items: center; /* Add this */
+ font-family: 'IBM Plex Sans', sans-serif; /* Added sans-serif as a fallback */
+ display: flex;
+ justify-content: center;
+ align-items: center;
 }
 
+/* Container Styles */
 .container {
  display: flex;
- flex-wrap: wrap; /* Enables wrapping of items */
- justify-content: center; /* Centers items horizontally */
+ flex-wrap: wrap;
+ justify-content: center;
  align-items: center;
  gap: 18px;
- padding: 20px; /* Adds some padding around the container */
+ padding: 20px;
 }
 
- text-align: center;
-
- display: flex;
- flex-wrap: wrap; /* Enables wrapping of items */
- justify-content: center; /* Centers items horizontally */
- align-items: center;
-
- gap: 18px;
- padding: 20px; /* Adds some padding around the container */
-}
-
+/* Header Styles */
 .header {
  font-size: 42px;
  display: flex;
@@ -45,16 +34,19 @@ body {
  gap: 12px;
 }
 
+/* Icon Styles */
 .icon {
  height: 42px;
  width: 42px;
 }
 
+/* Description Styles */
 .description {
  font-size: 16px;
  color: #afafaf;
 }
 
+/* Input Styles */
 .input {
  width: 100%;
  background-color: transparent;
@@ -65,26 +57,26 @@ body {
  text-align: center;
  color: white;
  outline: none;
-
- transition: color;
- transition-duration: 100ms;
+ transition: color 100ms ease-in-out; /* Added ease-in-out for smoother transition */
 }
 
 .input:disabled {
  color: #757575;
 }
 
+/* Logo Styles */
 .logo {
  height: 55px;
  width: 55px;
  will-change: filter;
- transition: filter 300ms;
+ transition: filter 300ms ease-in-out; /* Added ease-in-out for smoother transition */
 }
 
 .logo:hover {
  filter: drop-shadow(0 0 24px #685dff);
 }
 
+/* Footer Styles */
 .footer {
  position: absolute;
  bottom: 0;
@@ -93,12 +85,8 @@ body {
  justify-content: space-between;
  align-items: center;
  box-sizing: border-box;
-
  flex-shrink: 0;
-
- padding: 18px;
- padding-left: 24px;
- padding-right: 30px;
+ padding: 18px 24px 30px; /* Combined padding for better readability */
 }
 
 .footer a,
@@ -119,20 +107,20 @@ body {
  gap: 26px;
 }
 
-/* Add new styles for game images */
+/* Game Image Styles */
 .game-image {
  width: 128px;
  height: 128px;
- object-fit: cover; /* Ensures the image covers the area without distorting its aspect ratio */
- margin-bottom: 10px; /* Adds some space between the image and the title */
+ object-fit: cover;
+ margin-bottom: 10px;
 }
 
-/* Optional: Adjust the layout of the game elements */
+/* Game Element Styles */
 .game {
  display: flex;
  flex-direction: column;
  align-items: center;
- margin-bottom: 20px; /* Adds some space between games */
+ margin-bottom: 20px;
 }
 
 .center-text {
