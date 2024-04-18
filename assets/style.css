@@ -22,10 +22,12 @@ body {
  text-align: center;
 
  display: flex;
- flex-direction: column;
+ flex-wrap: wrap; /* Enables wrapping of items */
+ justify-content: center; /* Centers items horizontally */
  align-items: center;
 
  gap: 18px;
+ padding: 20px; /* Adds some padding around the container */
 }
 
 .header {
