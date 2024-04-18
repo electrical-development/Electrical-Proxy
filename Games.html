@@ -6,6 +6,29 @@
  <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
  <title>Electrical Games</title>
  <link rel="stylesheet" href="./assets/style.css">
+ <style>
+   .flex-container {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 20px; /* Adjust the gap between items as needed */
+   }
+   .game {
+     width: 300px; /* Adjust this value as needed */
+     height: 400px; /* Adjust this value as needed */
+     border-radius: 30px; /* Optional: to match the example's style */
+     background-color: #949494; /* Optional: to match the example's style */
+     margin: 10px; /* Add some margin around each game for spacing */
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+   }
+   .game-image {
+     width: 100%; /* Make the image take the full width of its parent */
+     height: auto; /* Maintain the aspect ratio */
+   }
+ </style>
 </head>
 <body>
  <div class="container">
@@ -16,7 +39,7 @@
       </svg>
       Electrical Games
     </h1>
-    <div id="gamesList"></div>
+    <div id="gamesList" class="flex-container"></div>
  </div>
 
  <script>
