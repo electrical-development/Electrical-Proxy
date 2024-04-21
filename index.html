@@ -2,74 +2,148 @@
 <html lang="en">
 
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
- <title>Electrical proxies</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
+    <title>Electrical proxies</title>
 
- <!-- Meta tags for SEO -->
- <meta property="og:title" content="Electrical Proxies">
- <meta property="og:description" content="Electrical proxies - best unblocker for school">
- <meta property="og:image" content="/assets/favicon.png">
- <meta property="og:url" content="https://playstation452.github.io/Uv-template-opensource/">
- <meta name="theme-color" content="#262262" />
+    <!-- Meta tags for SEO -->
+    <meta property="og:title" content="Electrical Proxies">
+    <meta property="og:description" content="Electrical proxies - best unblocker for school">
+    <meta property="og:image" content="/assets/favicon.png">
+    <meta property="og:url" content="https://playstation452.github.io/Uv-template-opensource/">
+    <meta name="theme-color" content="#262262" />
 
- <!-- Styles and fonts -->
- <link rel="stylesheet" href="./assets/style.css">
- <link rel="preconnect" href="https://fonts.googleapis.com">
- <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
- <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <!-- Styles and fonts -->
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 
- <!-- Scripts -->
- <script src="./uv/uv.bundle.js"></script>
- <script src="./uv/uv.config.js"></script>
- <script src="./assets/register-sw.js"></script>
+    <!-- Scripts -->
+    <script src="./uv/uv.bundle.js"></script>
+    <script src="./uv/uv.config.js"></script>
+    <script src="./assets/register-sw.js"></script>
+
+<style>
+    body {
+        font-family: 'IBM Plex Sans', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #ffffff; /* Changed to white */
+        color: #262262; /* Dark blue text color */
+    }
+
+    header {
+        background-color: #262262; /* Dark blue header background */
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .games-button,.bypass-button,
+    .ai-button {
+        color: #fff;
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 30px;
+        background-color: #007bff; /* Nice blue button background */
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    .games-button:hover,.bypass-button:hover
+    .ai-button:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+    }
+
+    .container {
+        width: 80%;
+        margin: 0 auto;
+        text-align: center;
+        padding-top: 100px; /* Adjusted padding to center content */
+    }
+
+    .header {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #007bff; /* Nice blue header color */
+	background-color: white;
+    }
+
+    .input {
+        width: 80%;
+        padding: 15px;
+        font-size: 18px;
+        border: 2px solid #007bff; /* Nice blue border */
+        border-radius: 30px;
+        margin-bottom: 40px;
+        outline: none;
+        color: #007bff;
+    }
+
+    .input::placeholder {
+        color: #007bff; /* Nice blue placeholder color */
+    }
+
+    .footer {
+        background-color: #262262; /* Dark blue footer background */
+        color: #fff;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-right: 20px;
+    }
+
+    .footer a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 20px;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .footer a:hover {
+        color: #007bff; /* Nice blue on hover */
+    }
+</style>
 
 </head>
 
 <body>
- <!-- New Header with Games Button -->
- <header>
-    <a href="Games.html" class="games-button">Games</a>
-    <a href="AI.html" class="ai-button">AI</a>
- </header>
 
- <div class="container">
-    <div class="header-container">
-      <h1 class="header">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-          <path d="M20 22h-2" />
-          <path d="M20 15v2h-2" />
-          <path d="M4 19.5V15" />
-          <path d="M20 8v3" />
-          <path d="M18 2h2v2" />
-          <path d="M4 11V9" />
-          <path d="M12 2h2" />
-          <path d="M12 22h2" />
-          <path d="M12 17h2" />
-          <path d="M8 22H6.5a2.5 2.5 0 0 1 0-5H8" />
-          <path d="M4 5v-.5A2.5 2.5 0 0 1 6.5 2H8" />
-        </svg>
-        Electrical proxies
-      </h1>
-      <!-- Other content here -->
+
+    <div class="container">
+        <h1 class="header">Electrical proxies</h1>
+        <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
-    <input type="text" class="input" placeholder="Unblock Everything">
- </div>
-
- <div class="footer">
-    <div>
-      <img src="./assets/favicon.png" class="logo">
+      <div class="button-container">
+        <a href="Games.html" class="games-button">Games</a>
+        <a href="AI.html" class="ai-button">AI</a>
+        <a href="Bypass.html" class="bypass-button">Bypass</a>
     </div>
+    <div class="footer">
+        <div>
+            <img src="./assets/favicon.png" class="logo">
+        </div>
 
-    <div>
-      <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
-      <a href="https://github.com/titaniumnetwork-dev/ultraviolet" target="_blank">Ultraviolet</a>
+        <div>
+            <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
+            <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
+        </div>
     </div>
- </div>
-
- <script src="./assets/script.js" defer></script>
+	<script src="./assets/script.js" defer></script>
 </body>
 
 </html>
