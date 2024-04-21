@@ -6,7 +6,7 @@
 }
 
 body {
- background-color: #151515;
+ background-color: white;
  color: white;
  height: 100vh;
  width: 100vw;
@@ -33,6 +33,7 @@ body {
  display: flex;
  align-items: center;
  gap: 12px;
+ background-color: white;
 }
 
 /* Icon Styles */
@@ -137,6 +138,7 @@ body {
  align-items: center;
  justify-content: center; /* Centers the children vertically */
  text-align: center; /* Ensures text within the container is centered */
+ background-color: white;
 }
 
 .games-button {
@@ -176,6 +178,7 @@ body {
  justify-content: center;
  width: 100%;
  height: 100%;
+ background-color: white;
 }
 
 .ai-button {
@@ -196,4 +199,21 @@ body {
  background-color: #4a4082; /* Slightly darker shade for hover effect */
 }
 
+.bypass-button {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #0444bb;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.bypass-button:hover {
+    background-color: #4a4082; 
+}
 
