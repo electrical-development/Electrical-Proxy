@@ -12,20 +12,23 @@
         }
 
         .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-            z-index: 1000;
-            background-color: #007bff; /* Nice blue color */
-            padding: 10px 0;
-            color: #fff;
-            font-size: 24px;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
+	   position: fixed;
+    	   top: 0;
+    	   right: 0;
+    	   width: 100%;
+    	   text-align: center; /* This centers the text horizontally */
+    	   margin-bottom: 20px;
+    	   z-index: 1000;
+    	   background-color: #007bff; /* Nice blue color */
+    	   padding: 10px 0;
+    	   color: #fff;
+    	   font-size: 24px;
+    	   font-weight: bold;
+    	   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    	   display: flex; /* Add this to make the header a flex container */
+    	   justify-content: center; /* This centers the content horizontally */
+    	   align-items: center; /* This centers the content vertically */
+	}
 
         .flex-container {
             display: flex;
@@ -48,6 +51,14 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease-in-out;
         }
+
+	.header-content {
+    	    display: flex;
+    	    justify-content: center;
+    	    align-items: center;
+    	    width: 100%; /* Ensure it takes up the full width of the header */
+	}
+
 
         .game:hover {
             transform: scale(1.05);
@@ -98,6 +109,7 @@
         Electrical Games
     </div>
 </h1>
+
 
 <div class="flex-container" id="gamesList"></div>
 
