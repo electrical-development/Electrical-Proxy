@@ -7,6 +7,9 @@
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
     <title>Electrical proxies</title>
 
+    <!-- Bookmark List Display -->
+    <ul id="bookmarkList"></ul>
+
     <!-- Meta tags for SEO -->
     <meta property="og:title" content="Electrical Proxies">
     <meta property="og:description" content="Electrical proxies - best unblocker for school">
@@ -42,7 +45,7 @@
         align-items: center;
     }
 
-    .games-button,.bypass-button,
+    .games-button,.bypass-button,.bookmark-button,
     .ai-button {
         color: #fff;
         text-decoration: none;
@@ -53,7 +56,7 @@
         transition: background-color 0.3s ease-in-out;
     }
 
-    .games-button:hover,.bypass-button:hover
+    .games-button:hover,.bypass-button:hover, .bookmark-button:hover
     .ai-button:hover {
         background-color: #0056b3; /* Darker blue on hover */
     }
@@ -117,6 +120,50 @@
     .footer a:hover {
         color: #007bff; /* Nice blue on hover */
     }
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.bookmark-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
 </style>
 
 </head>
@@ -129,20 +176,38 @@
         <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
       <div class="button-container">
-        <a href="Games.html" class="games-button">Games</a>
-        <a href="AI.html" class="ai-button">AI</a>
-        <a href="Bypass.html" class="bypass-button">Bypass</a>
-    </div>
-    <div class="footer">
-        <div>
-            <img src="./assets/favicon.png" class="logo">
-        </div>
+    <a href="Games.html" class="games-button">Games</a>
+    <a href="AI.html" class="ai-button">AI</a>
+    <a href="Bypass.html" class="bypass-button">Bypass</a>
+</div>
 
-        <div>
-            <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
-            <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
-        </div>
+<!-- Bookmark Feature Integration -->
+<button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
+
+<div id="bookmarkModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Add a Bookmark</h2>
+        <form id="bookmarkForm">
+            <label for="bookmarkName">Name:</label>
+            <input type="text" id="bookmarkName" name="bookmarkName" required>
+            <label for="bookmarkLink">Link:</label>
+            <input type="url" id="bookmarkLink" name="bookmarkLink" required>
+            <button type="submit">Add Bookmark</button>
+        </form>
     </div>
+</div>
+
+<div class="footer">
+    <div>
+        <img src="./assets/favicon.png" class="logo">
+    </div>
+
+    <div>
+        <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
+        <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
+    </div>
+</div>
 	<script src="./assets/script.js" defer></script>
 </body>
 
