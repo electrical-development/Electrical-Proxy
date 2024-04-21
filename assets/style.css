@@ -217,3 +217,17 @@ body {
     background-color: #4a4082; 
 }
 
+.bookmark-button {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    color: #ffffff;
+    background-color: #0444bb;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.bookmark-button:hover {
+    background-color: #4a4082; 
+}
