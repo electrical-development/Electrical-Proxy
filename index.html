@@ -159,9 +159,10 @@
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 30px;
+    border-radius: 40px;
     cursor: pointer;
-    margin-top: 20px;
+    display: block;
+    margin-top: 120px;
 }
 
 .delete-button {
@@ -171,11 +172,37 @@
     border: none;
     border-radius: 30px;
     cursor: pointer;
-    margin-left: 10px; /* Add some space between the bookmark and delete buttons */
+    margin-left: 0px; /* Add some space between the bookmark and delete buttons */
 }
 
 .delete-button:hover {
     background-color: #c82333; /* Darker red on hover */
+}
+
+.positioned-parent {
+    position: relative; /* Make this the positioned parent */
+    min-height: 13vh; /* Ensure it takes up at least the full viewport height */
+    position: absolute; /* Position the button absolutely within the parent */
+    bottom: 200px; /* Position it above the footer */
+    left: 900px;
+}
+
+.blank-window-button {
+    position: absolute; /* Position the button absolutely within the parent */
+    bottom: 50px; /* Position it above the footer */
+    left: 50%; /* Center it horizontally */
+    transform: translateX(-50%); /* Adjust for the button's own width */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+}
+
+.blank-window-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 
@@ -186,44 +213,50 @@
 <body>
 
 
+</style>
+</head>
+
+<body>
     <div class="container">
         <h1 class="header">Electrical proxies</h1>
         <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
-      <div class="button-container">
-    <a href="Games.html" class="games-button">Games</a>
-    <a href="AI.html" class="ai-button">AI</a>
-    <a href="Bypass.html" class="bypass-button">Bypass</a>
+    <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
+    <div class="button-container">
+        <a href="Games.html" class="games-button">Games</a>
+        <a href="AI.html" class="ai-button">AI</a>
+        <a href="Bypass.html" class="bypass-button">Bypass</a>
+    </div>
+<div class="positioned-parent">
+    <button id="openBlankWindow" class="blank-window-button">About:Blank</button>
 </div>
 
-<!-- Bookmark Feature Integration -->
-<button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
 
-<div id="bookmarkModal" class="modal">
-    <div class="modal-content">
-        <span class="close">&times;</span>
-        <h2>Add a Bookmark</h2>
-        <form id="bookmarkForm">
-            <label for="bookmarkName">Name:</label>
-            <input type="text" id="bookmarkName" name="bookmarkName" required>
-            <label for="bookmarkLink">Link:</label>
-            <input type="url" id="bookmarkLink" name="bookmarkLink" required>
-            <button type="submit">Add Bookmark</button>
-        </form>
-    </div>
-</div>
-
-<div class="footer">
-    <div>
-        <img src="./assets/favicon.png" class="logo">
+    <!-- Bookmark Feature Integration -->
+    <div id="bookmarkModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add a Bookmark</h2>
+            <form id="bookmarkForm">
+                <label for="bookmarkName">Name:</label>
+                <input type="text" id="bookmarkName" name="bookmarkName" required>
+                <label for="bookmarkLink">Link:</label>
+                <input type="url" id="bookmarkLink" name="bookmarkLink" required>
+                <button type="submit">Add Bookmark</button>
+            </form>
+        </div>
     </div>
 
-    <div>
-        <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
-        <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
+    <div class="footer">
+        <div>
+            <img src="./assets/favicon.png" class="logo">
+        </div>
+
+        <div>
+            <a href="https://github.com/playstation452/Uv-template-opensource" target="_blank">GitHub</a>
+            <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
+        </div>
     </div>
-</div>
-	<script src="./assets/script.js" defer></script>
+    <script src="./assets/script.js" defer></script>
 </body>
-
 </html>
