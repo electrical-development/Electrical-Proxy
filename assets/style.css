@@ -231,3 +231,25 @@ body {
 .bookmark-button:hover {
     background-color: #4a4082; 
 }
+
+.blank-window-button { 
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+    top: 10px; 
+    left: 10px; 
+}
+
+.blank-window-button {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+}
