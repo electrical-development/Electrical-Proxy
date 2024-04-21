@@ -1,111 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
- <title>Electrical Games</title>
- <link rel="stylesheet" href="./assets/style.css">
- <style>
-   .container {
- padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
+    <title>Electrical Games</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <style>
+        .container {
+            padding: 0;
+        }
 
-.header {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- text-align: center;
- margin-bottom: 20px;
- z-index: 1000;
-}
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 20px;
+            z-index: 1000;
+            background-color: #007bff; /* Nice blue color */
+            padding: 10px 0;
+            color: #fff;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
 
-.flex-container {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- gap: 20px; 
-}
+        .flex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 80px; /* Adjusted padding to accommodate fixed header */
+        }
 
-.game {
- width: 300px;
- height: 400px;
- border-radius: 30px;
- background-color: #949494;
- margin: 10px; 
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center;
-}
+        .game {
+            width: 300px;
+            height: 400px;
+            border-radius: 30px;
+            background-color: #007bff; /* Nice blue color */
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
 
-.game-image {
- width: 100%;
- height: auto; 
-}
- </style>
+        .game:hover {
+            transform: scale(1.05);
+        }
+
+        .game-image {
+            width: 100%;
+            height: auto;
+    	    width: 288px; /* Set the width to 288px */
+    	    height: 288px; /* Set the height to 288px */
+        }
+
+        .game-info {
+            padding: 20px;
+            text-align: center;
+            background-color: #63a4ff; /* Light blue shading color */
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .game-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .play-button {
+            background-color: #0056b3; /* Darker blue color */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .play-button:hover {
+            background-color: #003f80; /* Darker shade of blue on hover */
+        }
+    </style>
 </head>
 <body>
-<h1 class="header1">
- <div class="header-content1">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
-      <!-- SVG path here -->
-    </svg>
-    Electrical Games
- </div>
+<h1 class="header">
+    <div class="header-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+            <!-- SVG path here -->
+        </svg>
+        Electrical Games
+    </div>
 </h1>
 
-    <div id="gamesList" class="flex-container"></div>
- </div>
- </div>
+<div class="flex-container" id="gamesList"></div>
 
- <script>
+<script>
     document.addEventListener("DOMContentLoaded", function () {
-      const gamesData = [
-        {
-          "link": "Games/achievementunlocked/achievementunlocked/index.html",
-          "imgSrc": "Games/achievementunlocked/achievementunlocked/achievementunlocked.png",
-          "title": "Achievement Unlocked"
-        },
-        {
-          "link": "Games/basketball-stars/basketball-stars/index.html",
-          "imgSrc": "Games/basketball-stars/basketball-stars/assets/images/basketball-stars1.png",
-          "title": "Basketball Stars"
-        },
-        {
-          "link": "Games/bloonstd/bloonstd/index.html",
-          "imgSrc": "Games/bloonstd/bloonstd/bloonstd.jpg",
-          "title": "Bloons TD"
-        }
-      ];
+        const gamesData = [
+            {
+                "link": "Games/achievementunlocked/achievementunlocked/index.html",
+                "imgSrc": "Games/achievementunlocked/achievementunlocked/achievementunlocked.png",
+                "title": "Achievement Unlocked"
+            },
+            {
+                "link": "Games/basketball-stars/basketball-stars/index.html",
+                "imgSrc": "Games/basketball-stars/basketball-stars/assets/images/basketball-stars1.png",
+                "title": "Basketball Stars"
+            },
+            {
+                "link": "Games/bloonstd/bloonstd/index.html",
+                "imgSrc": "Games/bloonstd/bloonstd/bloonstd.jpg",
+                "title": "Bloons TD"
+            }
+        ];
 
-      const gamesList = document.getElementById("gamesList");
+                const gamesList = document.getElementById("gamesList");
 
-      gamesData.forEach(game => {
-        const gameElement = document.createElement("div");
-        gameElement.className = "game";
+        gamesData.forEach(game => {
+            const gameElement = document.createElement("div");
+            gameElement.className = "game";
+            gameElement.className = "game-info";
+            gameElement.className = "game-image";
 
-        const imgElement = document.createElement("img");
-        imgElement.src = game.imgSrc;
-        imgElement.alt = game.title;
-        imgElement.className = "game-image";
+            const imgElement = document.createElement("img");
+            imgElement.src = game.imgSrc;
+            imgElement.alt = game.title;
+            imgElement.className = "game-image";
 
-        const titleElement = document.createElement("h2");
-        titleElement.textContent = game.title;
+            const titleElement = document.createElement("div");
+            titleElement.className = "game-info";
+            titleElement.innerHTML = `<h2 class="game-title">${game.title}</h2>`;
 
-        const linkElement = document.createElement("a");
-        linkElement.href = game.link;
-        linkElement.textContent = "Play";
+            const linkElement = document.createElement("a");
+            linkElement.href = game.link;
+            linkElement.textContent = "Play";
+            linkElement.className = "play-button";
 
-        gameElement.appendChild(imgElement);
-        gameElement.appendChild(titleElement);
-        gameElement.appendChild(linkElement);
+            titleElement.appendChild(linkElement);
+            gameElement.appendChild(imgElement);
+            gameElement.appendChild(titleElement);
 
-        gamesList.appendChild(gameElement);
-      });
+            gamesList.appendChild(gameElement);
+	   
+        });
     });
- </script>
+</script>
 </body>
 </html>
