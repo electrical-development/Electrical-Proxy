@@ -215,36 +215,35 @@
             }
         ];
 
-                const gamesList = document.getElementById("gamesList");
+    const gamesList = document.getElementById("gamesList");
 
-        gamesData.forEach(game => {
-            const gameElement = document.createElement("div");
-            gameElement.className = "game";
-            gameElement.className = "game-info";
-            gameElement.className = "game-image";
+    gamesData.forEach(game => {
+        const gameElement = document.createElement("div");
+        gameElement.className = "game"; // Correctly set the class for the game container
 
-            const imgElement = document.createElement("img");
-            imgElement.src = game.imgSrc;
-            imgElement.alt = game.title;
-            imgElement.className = "game-image";
+        const imgElement = document.createElement("img");
+        imgElement.src = game.imgSrc;
+        imgElement.alt = game.title;
+        imgElement.className = "game-image";
 
-            const titleElement = document.createElement("div");
-            titleElement.className = "game-info";
-            titleElement.innerHTML = `<h2 class="game-title">${game.title}</h2>`;
+        const titleElement = document.createElement("div");
+        titleElement.className = "game-info";
+        titleElement.innerHTML = `<h2 class="game-title">${game.title}</h2>`;
 
-            const linkElement = document.createElement("a");
-            linkElement.href = game.link;
-            linkElement.textContent = "Play";
-            linkElement.className = "play-button";
+        const linkElement = document.createElement("a");
+        linkElement.href = game.link;
+        linkElement.textContent = "Play";
+        linkElement.className = "play-button";
 
-            titleElement.appendChild(linkElement);
-            gameElement.appendChild(imgElement);
-            gameElement.appendChild(titleElement);
+        // Append the image, title, and play button to the game container
+        gameElement.appendChild(imgElement);
+        gameElement.appendChild(titleElement);
+        titleElement.appendChild(linkElement);
 
-            gamesList.appendChild(gameElement);
-	   
-        });
+        // Append the game container to the games list
+        gamesList.appendChild(gameElement);
     });
+});
 </script>
 </body>
 </html>
