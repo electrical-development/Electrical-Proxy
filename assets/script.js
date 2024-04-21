@@ -42,44 +42,48 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Updated Function to display bookmarks
-function displayBookmarks() {
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    const bookmarkList = document.getElementById('bookmarkList');
-    bookmarkList.innerHTML = ''; // Clear the list before adding new items
-    bookmarks.forEach(function(bookmark, index) {
-        // Create a new list item for each bookmark
-        const listItem = document.createElement('li');
-        
-        // Create a new button for the bookmark
-        const bookmarkButton = document.createElement('button');
-        bookmarkButton.textContent = bookmark.name; // Set the button text to the bookmark name
-        bookmarkButton.className = "bookmark-button"; // Add a class for styling
-        bookmarkButton.addEventListener('click', function() {
-            // Redirect to the bookmark's URL in the specified format when the button is clicked
-            const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(bookmark.link);
-            window.location.href = encodedUrl;
+    function displayBookmarks() {
+        let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
+        const bookmarkList = document.getElementById('bookmarkList');
+        bookmarkList.innerHTML = ''; // Clear the list before adding new items
+        bookmarks.forEach(function(bookmark, index) {
+            // Create a new list item for each bookmark
+            const listItem = document.createElement('li');
+            
+            // Create a new button for the bookmark
+            const bookmarkButton = document.createElement('button');
+            bookmarkButton.textContent = bookmark.name; // Set the button text to the bookmark name
+            bookmarkButton.className = "bookmark-button"; // Add a class for styling
+            bookmarkButton.addEventListener('click', function() {
+                // Redirect to the bookmark's URL in the specified format when the button is clicked
+                const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(bookmark.link);
+                window.location.href = encodedUrl;
+            });
+            
+            // Create a delete button for the bookmark
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.className = "delete-button"; // Add a class for styling
+            deleteButton.addEventListener('click', function() {
+                deleteBookmark(index); // Call the delete function with the bookmark index
+            });
+            
+            // Append the buttons to the list item
+            listItem.appendChild(bookmarkButton);
+            listItem.appendChild(deleteButton);
+            
+            // Append the list item to the bookmark list
+            bookmarkList.appendChild(listItem);
         });
-        
-        // Create a delete button for the bookmark
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.className = "delete-button"; // Add a class for styling
-        deleteButton.addEventListener('click', function() {
-            deleteBookmark(index); // Call the delete function with the bookmark index
-        });
-        
-        // Append the buttons to the list item
-        listItem.appendChild(bookmarkButton);
-        listItem.appendChild(deleteButton);
-        
-        // Append the list item to the bookmark list
-        bookmarkList.appendChild(listItem);
-    });
-}
-
+    }
 
     // Display existing bookmarks on page load
     displayBookmarks();
+
+    // Add the code for opening a new window in about:blank here
+    document.getElementById('openBlankWindow').addEventListener('click', function() {
+        window.open('index.html', '_blank');
+    });
 });
 
 function deleteBookmark(index) {
@@ -88,7 +92,6 @@ function deleteBookmark(index) {
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); // Update the local storage
     window.location.reload();
 }
-
 
 function formatSearch(query) {
     try {
