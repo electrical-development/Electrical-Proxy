@@ -40,6 +40,14 @@ document.addEventListener('DOMContentLoaded', () => {
         modal.style.display = "none";
         displayBookmarks(); // Call the function to display bookmarks
     });
+    
+    // Corrected the ID to match the button's ID in the HTML
+    document.getElementById('temp').addEventListener('click', function() {
+        const currentUrl = window.location.href;
+        const blankWindow = window.open('about:blank');
+        blankWindow.location.href = currentUrl;
+    });
+});
 
 // Updated Function to display bookmarks
 function displayBookmarks() {
