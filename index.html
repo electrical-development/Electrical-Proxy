@@ -162,7 +162,7 @@
     border-radius: 40px;
     cursor: pointer;
     display: block;
-    margin-top: 120px;
+    margin-top: 20px;
 }
 
 .delete-button {
@@ -189,16 +189,19 @@
 
 .blank-window-button {
     position: absolute; /* Position the button absolutely within the parent */
-    bottom: 50px; /* Position it above the footer */
-    left: 50%; /* Center it horizontally */
+    bottom: 150px;
+    left: 47%; /* Center it horizontally */
+    down: 47%;
     transform: translateX(-50%); /* Adjust for the button's own width */
     color: #fff;
     text-decoration: none;
     font-size: 18px;
-    padding: 10px 20px;
+    padding: 1px 5px; /* Adjust padding to change the button's size */
     border-radius: 30px;
     background-color: #007bff; /* Nice blue button background */
     transition: background-color 0.3s ease-in-out;
+    width: 150px;
+    height: 50px
 }
 
 .blank-window-button:hover {
@@ -222,6 +225,7 @@
         <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
     <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
+    <button id="openBlankWindow" class="blank-window-button">About:blank</button>
     <div class="button-container">
         <a href="Games.html" class="games-button">Games</a>
         <a href="AI.html" class="ai-button">AI</a>
@@ -256,5 +260,15 @@
         </div>
     </div>
     <script src="./assets/script.js" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const openBlankWindowButton = document.getElementById('openBlankWindow');
+
+    openBlankWindowButton.addEventListener('click', function() {
+        const newWindow = window.open('about:blank', '_blank');
+        newWindow.location.href = window.location.href;
+    });
+});
+</script>
 </body>
 </html>
