@@ -120,6 +120,6 @@ function create(url) {
 
 function create_blnkr() {
   
-  let x = prompt("What site would you like to open? Note that some sites will not work with this, and https:// is required")
+  let x = prompt("What site would you like to open? Note that some sites will not work with this, and https:// is required. you might need to wait if you want to use the proxy")
   create(x)
 }
