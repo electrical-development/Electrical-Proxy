@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query);
     }
 
-    // Bookmark functionality
     const modal = document.getElementById("bookmarkModal");
     const btn = document.getElementById("openBookmarkModal");
     const span = document.getElementsByClassName("close")[0];
@@ -38,58 +37,48 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
         modal.style.display = "none";
-        displayBookmarks(); // Call the function to display bookmarks
+        displayBookmarks();
     });
-    
-    // Corrected the ID to match the button's ID in the HTML
+
     document.getElementById('temp').addEventListener('click', function() {
         const currentUrl = window.location.href;
         const blankWindow = window.open('about:blank');
         blankWindow.location.href = currentUrl;
     });
+
+    displayBookmarks();
 });
 
-// Updated Function to display bookmarks
 function displayBookmarks() {
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
     const bookmarkList = document.getElementById('bookmarkList');
-    bookmarkList.innerHTML = ''; // Clear the list before adding new items
+    bookmarkList.innerHTML = '';
     bookmarks.forEach(function(bookmark, index) {
-        // Create a new list item for each bookmark
         const listItem = document.createElement('li');
-        
-        // Create a new button for the bookmark
         const bookmarkButton = document.createElement('button');
-        bookmarkButton.textContent = bookmark.name; // Set the button text to the bookmark name
-        bookmarkButton.className = "bookmark-button"; // Add a class for styling
+        bookmarkButton.textContent = bookmark.name;
+        bookmarkButton.className = "bookmark-button";
         bookmarkButton.addEventListener('click', function() {
-            // Redirect to the bookmark's URL in the specified format when the button is clicked
             const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(bookmark.link);
             window.location.href = encodedUrl;
         });
-        
-        // Create a delete button for the bookmark
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'Delete';
-        deleteButton.className = "delete-button"; // Add a class for styling
+        deleteButton.className = "delete-button";
         deleteButton.addEventListener('click', function() {
-            deleteBookmark(index); // Call the delete function with the bookmark index
+            deleteBookmark(index);
         });
-        
-        // Append the buttons to the list item
         listItem.appendChild(bookmarkButton);
         listItem.appendChild(deleteButton);
-        
-        // Append the list item to the bookmark list
         bookmarkList.appendChild(listItem);
     });
 }
 
 function deleteBookmark(index) {
     let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    bookmarks.splice(index, 1); // Remove the bookmark at the specified index
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks)); // Update the local storage
-    window.location.reload();
+    bookmarks.splice(index, 1);
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    displayBookmarks();
 }
 
 function formatSearch(query) {
@@ -106,20 +95,19 @@ function formatSearch(query) {
 }
 
 function create(url) {
-  var win = window.open();
-  win.document.body.style.margin = '0';
-  win.document.body.style.height = '100vh';
-  var iframe = win.document.createElement('iframe');
-  iframe.style.border = 'none';
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.margin = '0';
-  iframe.src = url;
-  win.document.body.appendChild(iframe);
+    var win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    var iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    iframe.src = url;
+    win.document.body.appendChild(iframe);
 }
 
 function create_blnkr() {
-  
-  let x = prompt("put in the link at the top of the page.")
-  create(x)
+    let x = prompt("put in the link at the top of the page.")
+    create(x)
 }
