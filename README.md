@@ -1,8 +1,7 @@
 # electrical proxy
-you can host on most static hosting sites but github pages
-
-### THE GITHUB PAGES LINK PROXY DO NOT WORK
-this used uv template
+best unblocker for school
+## confirmed deployment
+[![Deploy To Netlify](https://binbashbanana.github.io/deploy-buttons/buttons/remade/netlify.svg)](https://netlify/com)
 
 
 discord: https://discord.gg/2eP7N9cyDu
