@@ -46,7 +46,7 @@
     }
 
     .games-button,.bypass-button,.bookmark-button,
-    .ai-button {
+    .ai-button,.apps-button {
         color: #fff;
         text-decoration: none;
         font-size: 18px;
@@ -57,7 +57,7 @@
     }
 
     .games-button:hover,.bypass-button:hover, .bookmark-button:hover
-    .ai-button:hover {
+    .ai-button:hover, .apps-button:hover {
         background-color: #0056b3; /* Darker blue on hover */
     }
 
@@ -209,6 +209,26 @@
 }
 
 
+
+.exploit-page-button {
+    position: absolute; /* Position the button absolutely within the parent */
+    bottom: 150px;
+    left: 47%; /* Center it horizontally */
+    down: 40%;
+    transform: translateX(-50%); /* Adjust for the button's own width */
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 1px 5px; /* Adjust padding to change the button's size */
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+    width: 150px;
+    height: 50px
+}
+.exploit-page-button:hover {
+    background-color: #0056b3;
+}
 </style>
 
 </head>
@@ -226,10 +246,12 @@
     </div>
     <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
 	<button id="openBlankWindow" class="blank-window-button" onclick="create_blnkr()">About:blank cloaker</button>
+    <button class = 'exploit-page-button' onclick='open_exploit_page()'>Exploit Page</button>
     <div class="button-container">
         <a href="Games.html" class="games-button">Games</a>
         <a href="AI.html" class="ai-button">AI</a>
         <a href="Bypass.html" class="bypass-button">Bypass</a>
+        <a href="Apps.html" class="apps-button">Apps</a>
     </div>
 </div>
 
