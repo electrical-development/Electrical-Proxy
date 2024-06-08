@@ -215,6 +215,30 @@
 </head>
 
 <body>
+	<script>
+function getRandomURL() {
+	let randomURLS = [
+		"https://kahoot.it",
+		"https://classroom.google.com",
+		"https://drive.google.com",
+		"https://google.com",
+		"https://docs.google.com",
+		"https://slides.google.com",
+		"https://www.nasa.gov",
+		"https://blooket.com",
+		"https://clever.com",
+		"https://edpuzzle.com",
+		"https://khanacademy.org",
+		"https://wikipedia.org",
+		"https://dictionary.com"
+	]
+		return randomURLS[randRange(0, randomURLS.length)]
+}
+	
+	function randRange(min, max) {
+		return Math.floor(Math.random() * (max - min) + min)
+	}
+	</script>
 <script src="config.js"></script>
 <script>
 function create(url) {
@@ -230,9 +254,11 @@ function create(url) {
     iframe.id = "cFrame";
     win.document.body.appendChild(iframe);
 }
-var cFrame = document.getElementById('cFrame');
+// Cloaker
 if (cloaked === true && window.self == window.parent){
     create(window.location.href) 
+	const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomURL()
+    location.replace(pLink)
 }
 </script>
 </style>
