@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
@@ -214,8 +215,52 @@
 </head>
 
 <body>
-
-
+	<script>
+function getRandomURL() {
+	let randomURLS = [
+		"https://kahoot.it",
+		"https://classroom.google.com",
+		"https://drive.google.com",
+		"https://google.com",
+		"https://docs.google.com",
+		"https://slides.google.com",
+		"https://www.nasa.gov",
+		"https://blooket.com",
+		"https://clever.com",
+		"https://edpuzzle.com",
+		"https://khanacademy.org",
+		"https://wikipedia.org",
+		"https://dictionary.com"
+	]
+		return randomURLS[randRange(0, randomURLS.length)]
+}
+	
+	function randRange(min, max) {
+		return Math.floor(Math.random() * (max - min) + min)
+	}
+	</script>
+<script src="config.js"></script>
+<script>
+function create(url) {
+    var win = window.open();
+    win.document.body.style.margin = '0';
+    win.document.body.style.height = '100vh';
+    var iframe = win.document.createElement('iframe');
+    iframe.style.border = 'none';
+    iframe.style.width = '100%';
+    iframe.style.height = '100%';
+    iframe.style.margin = '0';
+    iframe.src = url;
+    iframe.id = "cFrame";
+    win.document.body.appendChild(iframe);
+}
+// Cloaker
+if (cloaked === true && window.self == window.parent){
+    create(window.location.href) 
+	const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomURL()
+    location.replace(pLink)
+}
+</script>
 </style>
 </head>
 <script>
@@ -321,8 +366,6 @@
             }
         });
     </script>
-    
-
 <body>
     <div class="container">
         <h1 class="header">Electrical proxies</h1>
