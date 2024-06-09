@@ -255,8 +255,24 @@ function create(url) {
     win.document.body.appendChild(iframe);
 }
 // Cloaker
-if (cloaked === true && window.self == window.parent){
-    create(window.location.href) 
+	if (cloaked === true && window.self == window.parent){
+	const popup = open("about:blank", "_blank")
+    const doc = popup.document
+    const iframe = doc.createElement("iframe")
+    const style = iframe.style
+    const link = doc.createElement("link")
+    const name = localStorage.getItem("name") || "My Drive - Google Drive"
+    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"
+    doc.title = name
+    link.rel = "icon"
+    link.href = icon
+    iframe.src = location.href
+    style.position = "fixed"
+    style.top = style.bottom = style.left = style.right = 0
+    style.border = style.outline = "none"
+    style.width = style.height = "100%"
+    doc.head.appendChild(link)
+    doc.body.appendChild(iframe)
 	const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomURL()
     location.replace(pLink)
 }
@@ -368,7 +384,7 @@ if (cloaked === true && window.self == window.parent){
     </script>
 <body>
     <div class="container">
-        <h1 class="header">Electrical proxies</h1>
+        <h1 class="header">Eletrical рroxies</h1>
         <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
     <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
@@ -376,7 +392,7 @@ if (cloaked === true && window.self == window.parent){
     <div class="button-container">
         <a href="Games.html" class="games-button">Games</a>
         <a href="AI.html" class="ai-button">AI</a>
-        <a href="Bypass.html" class="bypass-button">Bypass</a>
+        <a href="Bypass.html" class="bypass-button">Bуpass</a>
         <a href="Apps.html" class="apps-button">Apps</a>
         <a href="exploitpage.html" class="exploit-page-button">Exploits</a>
     </div>
