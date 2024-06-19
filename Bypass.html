@@ -26,6 +26,22 @@
             height: 50px;
             border: none;
             }
+            .button_home {
+                color: #fff;
+                font-size: 20px;
+                padding: 10px 20px;
+                border-radius: 30px;
+                background-color: #007bff; /* Nice blue button background */
+                transition: background-color 0.3s ease-in-out;
+                border: none;
+              }
+            .div_bp {
+                margin-left: 150px;
+            }
+            .div_home {
+                margin-top: 10px;
+                margin-left: 10px;
+            }
         </style>
         <script>
             function b1() {
@@ -40,12 +56,21 @@
             function b4() {
                 window.location.href = "bypass_page/LaughingGas.html"
             }
+            function home() {
+                window.location.href = "index.html"
+            }
         </script>
     </head>
     <body>
+        <div class = "div_home">
+        <button onclick="home()" class="button_home">Home</button>
+        </div>
+        <br>
+        <div class="div_bp">
         <button class = 'button_bp'onclick="b1()">Zscaler disabled</button>
         <button class="button_bp" onclick="b2()">GoGuardian screen</button>
         <button class="button_bp" onclick="b3()">GoGuardian site bypass</button>
         <button class="button_bp" onclick="b4()">Laughing Gas: Disable extensions</button>
+        </div>
     </body>
 </html>
