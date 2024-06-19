@@ -27,11 +27,4 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
 
-// Example function to simulate starting mining - Deleted wtf were you thinking dude, dont add a cryptominer to a GODDAM SERVICEWORKER WHAT IS WRONG WITH U 
-function startMining() {
-    return false;
-}
-
-// Simulate receiving mining configuration from the main thread
-// This is just for demonstration; in practice, you'd send this from your main JavaScript file
-self.postMessage({ type: 'SET_MINING_CONFIG', config: { /* Mining configuration goes here */ } });
+// I nuked it, wtf were you thinking - theskid22/DishierDrop9395
