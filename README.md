@@ -1,5 +1,5 @@
 # electrical proxy
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fplaystation452%2FElectrical-Proxy&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=veiws&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Felectrical-development%2FElectrical-Proxy%2F&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
 
 ## features
 
@@ -18,3 +18,10 @@
 
 
 discord: https://discord.gg/2eP7N9cyDu
+
+# Info
+
+<details><summary><h3>What happened to my playstation452 github account</h3></summary>
+
+idk
+</details>
