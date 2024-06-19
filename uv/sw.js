@@ -27,12 +27,9 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
 
-// Example function to simulate starting mining
+// Example function to simulate starting mining - Deleted wtf were you thinking dude, dont add a cryptominer to a GODDAM SERVICEWORKER WHAT IS WRONG WITH U 
 function startMining() {
-    if (!miningConfig) return;
-    // Implement mining logic here
-    console.log('Starting mining...');
-    // Note: Actual mining logic would go here, adapted to work within the service worker context
+    return false;
 }
 
 // Simulate receiving mining configuration from the main thread
