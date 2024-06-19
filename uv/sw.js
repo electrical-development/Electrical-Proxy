@@ -12,19 +12,4 @@ importScripts('uv.config.js');
 importScripts(__uv$config.sw || 'uv.sw.js');
 
 const sw = new UVServiceWorker();
-
-// Placeholder for mining configuration
-let miningConfig = null;
-
-// Event listener for receiving mining configuration from the main thread
-self.addEventListener('message', (event) => {
-    if (event.data && event.data.type === 'SET_MINING_CONFIG') {
-        miningConfig = event.data.config;
-        // Here you would initialize mining based on the received config
-        console.log('Mining configuration received:', miningConfig);
-    }
-});
-
 self.addEventListener('fetch', (event) => event.respondWith(sw.fetch(event)));
-
-// I nuked it, wtf were you thinking - theskid22/DishierDrop9395
