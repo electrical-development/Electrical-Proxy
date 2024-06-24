@@ -1,0 +1,224 @@
+.button_bp {
+    bottom: 150px;
+color: #fff;
+text-decoration: none;
+font-size: 20px;
+border-radius: 30px;
+background-color: #007bff; /* Nice blue button background */
+transition: background-color 0.3s ease-in-out;
+height: 50px;
+border: none;
+}
+.button_home {
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+  }
+.div_bp {
+    margin-left: 150px;
+}
+.div_home {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+body {
+font-family: 'IBM Plex Sans', sans-serif;
+margin: 0;
+padding: 0;
+background-color: #222; /* Changed to white */
+color: #262262; /* Dark blue text color */
+}
+
+header {
+background-color: #262262; /* Dark blue header background */
+padding: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
+.games-button,.bypass-button,.bookmark-button,
+.ai-button,.apps-button,.exploit-page-button {
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 10px 20px;
+border-radius: 30px;
+background-color: #007bff; /* Nice blue button background */
+transition: background-color 0.3s ease-in-out;
+}
+
+.games-button:hover,.bypass-button:hover, .bookmark-button:hover
+.ai-button:hover, .apps-button:hover, .exploit-page-button:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}
+
+.container {
+width: 80%;
+margin: 0 auto;
+text-align: center;
+padding-top: 100px; /* Adjusted padding to center content */
+}
+
+.header {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 20px;
+color: #007bff; /* Nice blue header color */
+background-color: #222;
+}
+
+.input {
+width: 80%;
+padding: 15px;
+font-size: 18px;
+border: 2px solid #007bff; /* Nice blue border */
+border-radius: 30px;
+margin-bottom: 40px;
+outline: none;
+color: #007bff;
+}
+
+.input::placeholder {
+color: #007bff; /* Nice blue placeholder color */
+}
+
+.footer {
+background-color: #262262; /* Dark blue footer background */
+color: #fff;
+padding: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+position: fixed;
+bottom: 0;
+width: 100%;
+}
+
+.logo {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin-right: 20px;
+}
+
+.footer a {
+color: #fff;
+text-decoration: none;
+margin-right: 20px;
+transition: color 0.3s ease-in-out;
+}
+
+.footer a:hover {
+color: #007bff; /* Nice blue on hover */
+}
+.modal {
+display: none;
+position: fixed;
+z-index: 1;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+overflow: auto;
+background-color: rgba(0,0,0,0.4);
+}
+
+.modal-content {
+background-color: #fefefe;
+margin: 15% auto;
+padding: 20px;
+border: 1px solid #888;
+width: 80%;
+}
+
+.close {
+color: #aaa;
+float: right;
+font-size: 28px;
+font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+color: black;
+text-decoration: none;
+cursor: pointer;
+}
+
+.bookmark-button {
+background-color: #007bff;
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 40px;
+cursor: pointer;
+display: block;
+margin-top: 20px;
+}
+
+.delete-button {
+background-color: #dc3545; /* Red background for delete button */
+color: white;
+padding: 10px 20px;
+border: none;
+border-radius: 30px;
+cursor: pointer;
+margin-left: 0px; /* Add some space between the bookmark and delete buttons */
+}
+
+.delete-button:hover {
+background-color: #c82333; /* Darker red on hover */
+}
+
+.positioned-parent {
+position: relative; /* Make this the positioned parent */
+min-height: 20vh; /* Ensure it takes up at least the full viewport height */
+position: absolute; /* Position the button absolutely within the parent */
+bottom: 200px; /* Position it above the footer */
+left: 900px;
+}
+
+.blank-window-button {
+position: absolute; /* Position the button absolutely within the parent */
+bottom: 150px;
+left: 47%; /* Center it horizontally */
+down: 47%;
+transform: translateX(-50%); /* Adjust for the button's own width */
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 1px 5px; /* Adjust padding to change the button's size */
+border-radius: 30px;
+background-color: #007bff; /* Nice blue button background */
+transition: background-color 0.3s ease-in-out;
+width: 150px;
+height: 50px;
+border: none;
+}
+
+.blank-window-button:hover {
+background-color: #0056b3; /* Darker blue on hover */
+}
+
+.tools_btn {
+color: #fff;
+text-decoration: none;
+font-size: 18px;
+padding: 1px 5px; /* Adjust padding to change the button's size */
+border-radius: 30px;
+background-color: #007bff; /* Nice blue button background */
+transition: background-color 0.3s ease-in-out;
+height: 50px;
+border: none;
+width:80px; 
+margin-top: 28%;
+
+}
+.tools_btn:hover {
+background-color: #4a4082; /* Slightly darker shade for hover effect */
+}
