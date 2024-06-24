@@ -274,8 +274,19 @@ function create(url) {
     iframe.id = "cFrame";
     win.document.body.appendChild(iframe);
 }
+function checkCookie(cookieName) {
+    var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i].trim();
+      
+        if (cookie.startsWith(cookieName + '=')) {
+            return true; 
+        }
+    }
+    return false; 
+}
 // Cloaker
-	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && getCookie('cloaksite') == ''){
+	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && checkCookie('cloaksite') == false){
 	const popup = open("about:blank", "_blank")
     const doc = popup.document
     const iframe = doc.createElement("iframe")
