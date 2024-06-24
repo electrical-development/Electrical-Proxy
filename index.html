@@ -275,7 +275,7 @@ function create(url) {
     win.document.body.appendChild(iframe);
 }
 // Cloaker
-	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && getCookie('cloaksite') == null){
+	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && getCookie('cloaksite') == ''){
 	const popup = open("about:blank", "_blank")
     const doc = popup.document
     const iframe = doc.createElement("iframe")
