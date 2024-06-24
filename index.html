@@ -274,11 +274,8 @@ function create(url) {
     iframe.id = "cFrame";
     win.document.body.appendChild(iframe);
 }
-if (getCookie('cloaksite') == null) {
-    setCookie("cloaksite", "none");
-}
 // Cloaker
-	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && getCookie('cloaksite') == 'none'){
+	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && getCookie('cloaksite') == null){
 	const popup = open("about:blank", "_blank")
     const doc = popup.document
     const iframe = doc.createElement("iframe")
