@@ -29,7 +29,7 @@
     <script src="./uv/uv.config.js"></script>
     <script src="./assets/register-sw.js"></script>
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-
+    <script src="./assets/cookie_man.js"></script>
 <style>
     body {
         font-family: 'IBM Plex Sans', sans-serif;
@@ -275,7 +275,7 @@ function create(url) {
     win.document.body.appendChild(iframe);
 }
 // Cloaker
-	if (cloaked === true && window.self == window.parent){
+	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true'){
 	const popup = open("about:blank", "_blank")
     const doc = popup.document
     const iframe = doc.createElement("iframe")
