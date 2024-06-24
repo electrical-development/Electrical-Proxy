@@ -2,7 +2,7 @@ self.__uv$config = {
     prefix: '/service/',
 
     /* Bare server URL */ 
-    bare: 'https://normal.playstation451nep.workers.dev',
+    bare: 'bare.electrial.site',
     
     encodeUrl: Ultraviolet.codec.xor.encode,
     decodeUrl: Ultraviolet.codec.xor.decode,
