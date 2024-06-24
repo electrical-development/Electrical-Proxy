@@ -295,7 +295,7 @@ function create(url) {
     doc.body.appendChild(iframe)
 	const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomURL()
     location.replace(pLink)
-} else {
+} else if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true'){
 	const popup = open("about:blank", "_blank")
     const doc = popup.document
     const iframe = doc.createElement("iframe")
