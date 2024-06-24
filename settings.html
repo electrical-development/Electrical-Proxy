@@ -28,8 +28,26 @@ function getCookie(name) {
  function setValue(value, cookie) {
             setCookie(cookie, value, 365)
 }
-
+function gotohome() {
+    window.location.href = "/";
+}
 </script>
-<button onclick="setValue('true', 'cloaked')">Enable About blank cloaking</button>
-<button onclick="setValue('false', 'cloaked')">Disable about blank cloaking</button>
+<button onclick="gotohome()">Home</button>
+<button onclick="setValue('true', 'cloaked')" class="button">Enable About blank cloaking</button>
+<button onclick="setValue('false', 'cloaked')" class="button">Disable about blank cloaking</button>
+<style>
+body {
+    background-color: #222;
+    color: #262262;
+}
+.button {
+    color: #fff;
+    font-size: 20px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: #007bff; /* Nice blue button background */
+    transition: background-color 0.3s ease-in-out;
+    border: none;
+}
+</style>
 </html>
