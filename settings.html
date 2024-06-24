@@ -36,10 +36,18 @@ function deleteCookie(cookieName) {
 }
 function setCloaksite() {
 	let csite = prompt("What site would you want to cloak to? \n Type in 'clear' to use default cloak sites. ")
-	setValue(csite, 'cloaksite')
-	if (csite == 'clear') {
+	if (csite.includes('http')) {
+		setValue(csite, 'cloaksite')
+		return 0;
+	} else {
+		if (csite == 'clear') {
 		deleteCookie('cloaksite')
+		return 0;
 	}
+		alert('bad input')
+		return 1;
+	}
+
 }
 </script>
 <button onclick="gotohome()" class="button">Home</button>
