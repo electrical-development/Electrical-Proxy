@@ -274,7 +274,7 @@ function create(url) {
     iframe.id = "cFrame";
     win.document.body.appendChild(iframe);
 }
-if (document.cookie.indexOf("cloaksite=") < 0)
+if (getCookie('cloaksite') == null) {
     setCookie("cloaksite", "none");
 }
 // Cloaker
