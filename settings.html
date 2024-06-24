@@ -31,10 +31,15 @@ function getCookie(name) {
 function gotohome() {
     window.location.href = "/";
 }
+function setCloaksite() {
+	let csite = prompt("What site would you want to cloak to?")
+	setValue(csite, 'cloaksite')
+}
 </script>
 <button onclick="gotohome()" class="button">Home</button>
 <button onclick="setValue('true', 'cloaked')" class="button">Enable About blank cloaking</button>
 <button onclick="setValue('false', 'cloaked')" class="button">Disable about blank cloaking</button>
+<button onclick="setCloaksite()" class="button">Set cloak site</button>
 <style>
 body {
     background-color: #222;
