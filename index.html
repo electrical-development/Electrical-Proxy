@@ -102,34 +102,11 @@
         color: #007bff; /* Nice blue placeholder color */
     }
 
-    .footer {
-        background-color: #262262; /* Dark blue footer background */
-        color: #fff;
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: fixed;
-        bottom: 0;
-        width: 100%;
-    }
-
     .logo {
         width: 50px;
         height: 50px;
         border-radius: 50%;
         margin-right: 20px;
-    }
-
-    .footer a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 20px;
-        transition: color 0.3s ease-in-out;
-    }
-
-    .footer a:hover {
-        color: #007bff; /* Nice blue on hover */
     }
 .modal {
     display: none;
@@ -445,23 +422,20 @@ function checkCookie(cookieName) {
 			window.location.href = "/tools.html"
 		}
         </script>
+<link rel="stylesheet" type="text/css" href=",/assets/style.css"></link>
 <body>
+    <div class="navbar">
+        <a href="/index.html" class="button">Home</a>
+        <a href="/games.html" class="button">Games</a>
+        <a href="/exploits.html" class="button">Exploits</a> 
+        <a href="/AI.html" class="button">AI</a>
+     </div>
     <div class="container">
         <h1 class="header">Eletrical рroxies</h1>
         <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
     </div>
-	<div class "button-container">
-    <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
-	<button id="openBlankWindow" class="blank-window-button" onclick="create_blnkr()">About:blank cloaker</button>
-	</div>
-	<div class="button-container">
-	</div>
     <div class="button-container">
-        <a href="Games.html" class="games-button">Games</a>
-        <a href="AI.html" class="ai-button">AI</a>
-        <a href="Bypass.html" class="bypass-button">Bуpass</a>
-        <a href="Apps.html" class="apps-button">Apps</a>
-        <a href="exploitpage.html" class="exploit-page-button">Exploits</a>
+    <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
     </div>
 </div>
 
@@ -481,17 +455,13 @@ function checkCookie(cookieName) {
         </div>
     </div>
 
-    <div class="footer">
-        <div>
-            <img src="./assets/favicon.png" class="logo">
-        </div>
 
-        <div>
-            <a href="https://github.com/electrical-development/Electrical-Proxy" target="_blank">GitHub</a>
+        <div class="footer_butwithouttheoldbloat">
+            <a href="https://github.com/electrical-development/Electrical-Proxy" target="_blank">GitHub </a>    
             <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
 			<a href="/settings.html">Settings</a>
         </div>
-    </div>
+
     <script src="./assets/script.js" defer></script>
 </body>
 </html>
