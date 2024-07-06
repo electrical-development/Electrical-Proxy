@@ -1,113 +1,67 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const input = document.querySelector(".input");
-    input.addEventListener("keydown", handleInput);
+  const input = document.querySelector(".input")
+  input.addEventListener("keydown", handleInput)
 
-    function handleInput(e) {
-        if (e.key !== 'Enter') return;
-        const query = formatSearch(input.value);
-        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query);
-    }
+  function handleInput(e) {
+    // We only want the function to run if the key pressed is the Enter key
+    if (e.key !== 'Enter') return;
 
-    const modal = document.getElementById("bookmarkModal");
-    const btn = document.getElementById("openBookmarkModal");
-    const span = document.getElementsByClassName("close")[0];
-    const bookmarkForm = document.getElementById('bookmarkForm');
+    // Run the formatSearch function on the current value of the input
+    const query = formatSearch(input.value)
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-
-    bookmarkForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const name = document.getElementById('bookmarkName').value;
-        const link = document.getElementById('bookmarkLink').value;
-
-        let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-        bookmarks.push({name: name, link: link});
-        localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-
-        modal.style.display = "none";
-        displayBookmarks();
-    });
-
-    document.getElementById('temp').addEventListener('click', function() {
-        const currentUrl = window.location.href;
-        const blankWindow = window.open('about:blank');
-        blankWindow.location.href = currentUrl;
-    });
-
-    displayBookmarks();
-});
-
-function displayBookmarks() {
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    const bookmarkList = document.getElementById('bookmarkList');
-    bookmarkList.innerHTML = '';
-    bookmarks.forEach(function(bookmark, index) {
-        const listItem = document.createElement('li');
-        const bookmarkButton = document.createElement('button');
-        bookmarkButton.textContent = bookmark.name;
-        bookmarkButton.className = "bookmark-button";
-        bookmarkButton.addEventListener('click', function() {
-            const encodedUrl = __uv$config.prefix + __uv$config.encodeUrl(bookmark.link);
-            window.location.href = encodedUrl;
-        });
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'Delete';
-        deleteButton.className = "delete-button";
-        deleteButton.addEventListener('click', function() {
-            deleteBookmark(index);
-        });
-        listItem.appendChild(bookmarkButton);
-        listItem.appendChild(deleteButton);
-        bookmarkList.appendChild(listItem);
-    });
-}
-
-function deleteBookmark(index) {
-    let bookmarks = JSON.parse(localStorage.getItem('bookmarks')) || [];
-    bookmarks.splice(index, 1);
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-    displayBookmarks();
-}
+    // Redirect to         [   uv prefix    ] + [   encoded search query   ]
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query)
+  }
+})
 
 function formatSearch(query) {
-    try {
-        return new URL(query).toString();
-    } catch (e) { }
+  // This function turns the inputted value into a Google search if it's not a normal URL
+  try {
+    return new URL(query).toString()
+  } catch (e) { }
 
-    try {
-        const url = new URL(`http://${query}`);
-        if (url.hostname.includes('.')) return url.toString();
-    } catch (e) { }
+  try {
+    const url = new URL(`http://${query}`)
+    if (url.hostname.includes('.')) return url.toString()
+  } catch (e) { }
 
-    return new URL(`https://google.com/search?q=${query}`).toString();
+  return new URL(`https://google.com/search?q=${query}`).toString()
 }
 
+function Redir(url) {
+  window.location.href = url
+}
+
+// Search history spammer
+//REMOVED
+
+// Added BLNKR functionality
 function create(url) {
-    var win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    var iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    iframe.src = url;
-    win.document.body.appendChild(iframe);
+  url_enc = Ultraviolet.codec.xor.encode(url)
+  url_enc_prefix = __uv$config.prefix + url_enc
+  var win = window.open();
+  win.document.body.style.margin = '0';
+  win.document.body.style.height = '100vh';
+  var iframe = win.document.createElement('iframe');
+  iframe.style.border = 'none';
+  iframe.style.width = '100%';
+  iframe.style.height = '100%';
+  iframe.style.margin = '0';
+  iframe.src = url_enc_prefix;
+  win.document.body.appendChild(iframe);
 }
 
 function create_blnkr() {
-    let x = prompt("put in the link at the top of the page.")
-    create(x)
+  let x = prompt("Where would you like to go? \n At the moment google searches are not supported.")
+  create(x)
 }
+// Panic key
+let csite = localStorage.getItem('cloaksite');
+if (csite == null) {
+  csite = 'https://classroom.google.com'
+}
+document.addEventListener('keydown', function(event) {
+  if (event.key === '=') {
+        window.parent.location.href = csite;
+    }
+});

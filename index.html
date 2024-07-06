@@ -2,466 +2,51 @@
 <html lang="en">
 
 <head>
+ 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/fav.png" type="image/png">
+  <title>Eletrical рroxies v2</title>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png">
-    <title>Electrical proxies</title>
 
-    <!-- Bookmark List Display -->
-    <ul id="bookmarkList"></ul>
+  <!-- Styles and fonts -->
+  <link rel="stylesheet" href="./assets/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
 
-    <!-- Meta tags for SEO -->
-    <meta property="og:title" content="Electrical Proxies">
-    <meta property="og:description" content="Electrical proxies - best unblocker for school">
-    <meta property="og:image" content="/assets/favicon.png">
-    <meta property="og:url" content="https://playstation452.github.io/Uv-template-opensource/">
-    <meta name="theme-color" content="#262262" />
-
-    <!-- Styles and fonts -->
-    <link rel="stylesheet" href="./assets/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
-
-    <!-- Scripts -->
-    <script src="./uv/uv.bundle.js"></script>
-    <script src="./uv/uv.config.js"></script>
-    <script src="./assets/register-sw.js"></script>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./assets/cookie_man.js"></script>
-   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-683NM3VWNY"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-683NM3VWNY');
-</script>
-<style>
-    body {
-        font-family: 'IBM Plex Sans', sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #222; /* Changed to white */
-        color: #262262; /* Dark blue text color */
-    }
-
-    header {
-        background-color: #262262; /* Dark blue header background */
-        padding: 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .games-button,.bypass-button,.bookmark-button,
-    .ai-button,.apps-button,.exploit-page-button {
-        color: #fff;
-        text-decoration: none;
-        font-size: 18px;
-        padding: 10px 20px;
-        border-radius: 30px;
-        background-color: #007bff; /* Nice blue button background */
-        transition: background-color 0.3s ease-in-out;
-    }
-
-    .games-button:hover,.bypass-button:hover, .bookmark-button:hover
-    .ai-button:hover, .apps-button:hover, .exploit-page-button:hover {
-        background-color: #0056b3; /* Darker blue on hover */
-    }
-
-    .container {
-        width: 80%;
-        margin: 0 auto;
-        text-align: center;
-        padding-top: 100px; /* Adjusted padding to center content */
-    }
-
-    .header {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        color: #007bff; /* Nice blue header color */
-	background-color: #222;
-    }
-
-    .input {
-        width: 80%;
-        padding: 15px;
-        font-size: 18px;
-        border: 2px solid #007bff; /* Nice blue border */
-        border-radius: 30px;
-        margin-bottom: 40px;
-        outline: none;
-        color: #007bff;
-    }
-
-    .input::placeholder {
-        color: #007bff; /* Nice blue placeholder color */
-    }
-
-    .logo {
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        margin-right: 20px;
-    }
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.bookmark-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    display: block;
-    margin-top: 20px;
-}
-
-.delete-button {
-    background-color: #dc3545; /* Red background for delete button */
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    margin-left: 0px; /* Add some space between the bookmark and delete buttons */
-}
-
-.delete-button:hover {
-    background-color: #c82333; /* Darker red on hover */
-}
-
-.positioned-parent {
-    position: relative; /* Make this the positioned parent */
-    min-height: 20vh; /* Ensure it takes up at least the full viewport height */
-    position: absolute; /* Position the button absolutely within the parent */
-    bottom: 200px; /* Position it above the footer */
-    left: 900px;
-}
-
-.blank-window-button {
-    position: absolute; /* Position the button absolutely within the parent */
-    bottom: 150px;
-    left: 47%; /* Center it horizontally */
-    down: 47%;
-    transform: translateX(-50%); /* Adjust for the button's own width */
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 1px 5px; /* Adjust padding to change the button's size */
-    border-radius: 30px;
-    background-color: #007bff; /* Nice blue button background */
-    transition: background-color 0.3s ease-in-out;
-    width: 150px;
-    height: 50px;
-    border: none;
-}
-
-.blank-window-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-.tools_btn {
-color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-            padding: 1px 5px; /* Adjust padding to change the button's size */
-            border-radius: 30px;
-            background-color: #007bff; /* Nice blue button background */
-            transition: background-color 0.3s ease-in-out;
-            height: 50px;
-            border: none;
-            width:80px; 
-			margin-top: 28%;
-			
-}
-
-.tools_btn:hover {
- background-color: #4a4082; /* Slightly darker shade for hover effect */
-}
-</style>
+  <!-- Scripts -->
+  <script src="./uv/uv.bundle.js"></script>
+  <script src="./uv/uv.config.js"></script>
+  <script src="./assets/register-sw.js"></script>
+  <script src = './assets/exploitscripts.js'></script>
 
 </head>
 
 <body>
-	<script>
-function getRandomURL() {
-	let randomURLS = [
-		"https://kahoot.it",
-		"https://classroom.google.com",
-		"https://drive.google.com",
-		"https://google.com",
-		"https://docs.google.com",
-		"https://slides.google.com",
-		"https://www.nasa.gov",
-		"https://blooket.com",
-		"https://clever.com",
-		"https://edpuzzle.com",
-		"https://khanacademy.org",
-		"https://wikipedia.org",
-		"https://dictionary.com",
-		"https://ixl.com",
-	]
-		return randomURLS[randRange(0, randomURLS.length)]
-}
-	
-	function randRange(min, max) {
-		return Math.floor(Math.random() * (max - min) + min)
-	}
-	</script>
-<script src="config.js"></script>
-<script>
-function create(url) {
-    var win = window.open();
-    win.document.body.style.margin = '0';
-    win.document.body.style.height = '100vh';
-    var iframe = win.document.createElement('iframe');
-    iframe.style.border = 'none';
-    iframe.style.width = '100%';
-    iframe.style.height = '100%';
-    iframe.style.margin = '0';
-    iframe.src = url;
-    iframe.id = "cFrame";
-    win.document.body.appendChild(iframe);
-}
-function checkCookie(cookieName) {
-    var cookies = document.cookie.split(';');
-        for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i].trim();
+   <div class="navbar">
+      <a href="/index.html" class="button">Home</a>
+      <a href="/games.html" class="button">Games</a>
+      <a href="/exploits.html" class="button">Exploits</a> 
+   </div>
+  <div class="container">
+    <h1 class="header">
       
-        if (cookie.startsWith(cookieName + '=')) {
-            return true; 
-        }
-    }
-    return false; 
-}
-// Cloaker
-	if (cloaked === true && window.self == window.parent && getCookie('cloaked') == 'true' && checkCookie('cloaksite') == false){
-	const popup = open("about:blank", "_blank")
-    const doc = popup.document
-    const iframe = doc.createElement("iframe")
-    const style = iframe.style
-    const link = doc.createElement("link")
-    const name = localStorage.getItem("name") || "My Drive - Google Drive"
-    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"
-    doc.title = name
-    link.rel = "icon"
-    link.href = icon
-    iframe.src = location.href
-    style.position = "fixed"
-    style.top = style.bottom = style.left = style.right = 0
-    style.border = style.outline = "none"
-    style.width = style.height = "100%"
-    doc.head.appendChild(link)
-    doc.body.appendChild(iframe)
-	const pLink = localStorage.getItem(encodeURI("pLink")) || getRandomURL()
-    location.replace(pLink)
-} else if (cloaked == true && window.self === window.top && getCookie('cloaked') == 'true'){
-	const popup = open("about:blank", "_blank")
-    const doc = popup.document
-    const iframe = doc.createElement("iframe")
-    const style = iframe.style
-    const link = doc.createElement("link")
-    const name = localStorage.getItem("name") || "My Drive - Google Drive"
-    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"
-    doc.title = name
-    link.rel = "icon"
-    link.href = icon
-    iframe.src = location.href
-    style.position = "fixed"
-    style.top = style.bottom = style.left = style.right = 0
-    style.border = style.outline = "none"
-    style.width = style.height = "100%"
-    doc.head.appendChild(link)
-    doc.body.appendChild(iframe)
-	const pLink = localStorage.getItem(encodeURI("pLink")) || getCookie('cloaksite')
-    location.replace(pLink)
-}
-</script>
-</style>
-</head>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        particlesJS('particles-js',
-        {
-            particles: {
-                number: { value: 80 },
-                color: { value: '#ffffff' },
-                shape: {
-                    type: 'circle',
-                },
-                opacity: {
-                    value: 0.5,
-                    random: false,
-                    anim: {
-                        enable: false,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: false,
-                        speed: 40,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#ffffff',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 6,
-                    direction: 'none',
-                    random: false,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false,
-                    attract: {
-                        enable: false,
-                        rotateX: 600,
-                        rotateY: 1200
-                    }
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'repulse'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    grab: {
-                        distance: 400,
-                        line_linked: {
-                            opacity: 1
-                        }
-                    },
-                    bubble: {
-                        distance: 400,
-                        size: 40,
-                        duration: 2,
-                        opacity: 8,
-                        speed: 3
-                    },
-                    repulse: {
-                        distance: 200,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    },
-                    remove: {
-                        particles_nb: 2
-                    }
-                }
-            },
-            retina_detect: true
-        });
-    });
-    </script>
-    <script>
-        document.addEventListener('keydown', function(event) {
-            // Check if the pressed key is equal (=)
-            if (event.key === '=') {
-                window.parent.location.href = 'https://www.google.com';
-            }
-        });
-		function Tools() {
-			window.location.href = "/tools.html"
-		}
-        </script>
-<link rel="stylesheet" type="text/css" href=",/assets/style.css"></link>
-<body>
-    <div class="navbar">
-        <a href="/index.html" class="button">Home</a>
-        <a href="/games.html" class="button">Games</a>
-        <a href="/exploits.html" class="button">Exploits</a> 
-        <a href="/AI.html" class="button">AI</a>
-     </div>
-    <div class="container">
-        <h1 class="header">Eletrical рroxies</h1>
-        <input type="text" id="inputField" class="input" placeholder="Made By Playstation451 And GabeDaBozo on discord">
-    </div>
-    <div class="button-container">
-    <button id="openBookmarkModal" class="bookmark-button">Add Bookmark</button>
-    </div>
-</div>
+      Electrical Proxies
+    </h1>
+    <input type="text" class="input" placeholder="Made by Play451, Theskid22, and Nobodycares_io">
+  </div>
 
-
-    <!-- Bookmark Feature Integration -->
-    <div id="bookmarkModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Add a Bookmark</h2>
-            <form id="bookmarkForm">
-                <label for="bookmarkName">Name:</label>
-                <input type="text" id="bookmarkName" name="bookmarkName" required>
-                <label for="bookmarkLink">Link:</label>
-                <input type="url" id="bookmarkLink" name="bookmarkLink" required>
-                <button type="submit">Add Bookmark</button>
-            </form>
-        </div>
-    </div>
-
-
-        <div class="footer_butwithouttheoldbloat">
-            <a href="https://github.com/electrical-development/Electrical-Proxy" target="_blank">GitHub </a>    
-            <a href="https://discord.gg/8RAX4GUk7S" target="_blank">Discord</a>
-			<a href="/settings.html">Settings</a>
-        </div>
-
-    <script src="./assets/script.js" defer></script>
+  <div class="footer">
+    <footer>
+      <a href="settings.html">Settings</a>
+    </footer>
+  </div>
+<br>
+<br>
+<br>
+  <script src="./assets/script.js" defer></script>
 </body>
 </html>
