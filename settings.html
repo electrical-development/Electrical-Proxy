@@ -3,32 +3,15 @@
     <a href="/index.html" class="button">Home</a>
     <a href="/games.html" class="button">Games</a>
     <a href="/exploits.html" class="button">Exploits</a>
-    <a href="/about.html" class="button">About</a>
  </div>
  <br>
  <br>
  <br>
 <link rel="stylesheet" type="text/css" href="./assets/style.css">
 <button class="button" onclick="setcsite()">Set panic site</button>
-<button class="button" onclick="toggle_ads()">Toggle ads</button>
 <script>
   function setcsite() {
     window.localStorage.setItem('cloaksite', prompt("Enter the panic site URL"));
-    
-  }
-  function toggle_ads() {
-  // Do i need to use ===? probably. Will I? fu  c k    n o 
-	if (localStorage.getItem('ads') == 'true') {
-		localStorage.setItem('ads', false)
-		return false;
-	} 
-	if (localStorage.getItem('ads') == 'false') {
-		localStorage.setItem('ads', 'true')
-		return true;
-	}
-}
-  if (localStorage.getItem('ads') == null) { 
-	localStorage.setItem('ads', 'true')
 }
 </script>
 </html>
