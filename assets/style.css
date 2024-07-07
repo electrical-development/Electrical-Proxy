@@ -38,7 +38,12 @@ body {
   gap: 12px;
   color : #007bff;
 }
-
+.flex_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1200px;
+}
 .icon {
   height: 42px;
   width: 42px;
