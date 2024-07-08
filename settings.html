@@ -15,7 +15,7 @@
     window.localStorage.setItem('cloaksite', prompt("Enter the panic site URL"));
 }
 function togglecloaked() {
-  if (localStorage.getItem('cloaked') == 'null') {
+  if (localStorage.getItem('cloaked') == null) {
     localStorage.setItem('cloaked', 'true');
     alert("Cloaked set to " + localStorage.getItem('cloaked'));
     return 0;

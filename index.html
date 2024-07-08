@@ -22,7 +22,7 @@
   <script src = './assets/exploitscripts.js'></script>
   <!--Put scripts related to cloaking here-->
 	<script>
-if (localStorage.getItem('cloaksite') === 'null') {
+if (localStorage.getItem('cloaksite') == null) {
   localStorage.setItem('cloaksite', 'https://classroom.google.com');
 }
 if ( window.self === window.top && localStorage.getItem('cloaked') == 'true') {
