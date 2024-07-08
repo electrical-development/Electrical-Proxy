@@ -9,9 +9,30 @@
  <br>
 <link rel="stylesheet" type="text/css" href="./assets/style.css">
 <button class="button_nongui" onclick="setcsite()">Set panic site</button>
+<button class="button_nongui" onclick="togglecloaked()">Toggle cloaked</button>
 <script>
   function setcsite() {
     window.localStorage.setItem('cloaksite', prompt("Enter the panic site URL"));
+}
+function togglecloaked() {
+  if (localStorage.getItem('cloaked') == 'null') {
+    localStorage.setItem('cloaked', 'true');
+    alert("Cloaked set to " + localStorage.getItem('cloaked'));
+    return 0;
+  }
+  if (localStorage.getItem('cloaked') == 'false') {
+    localStorage.setItem('cloaked', 'true');
+    alert("Cloaked set to " + localStorage.getItem('cloaked'));
+    return 0;
+  }
+  if (localStorage.getItem('cloaked') == 'true') {
+    localStorage.setItem('cloaked', 'false');
+    alert("Cloaked set to " + localStorage.getItem('cloaked'));
+    return 0;
+  }
+  alert("Unknown Error")
+  return 1;
+  
 }
 </script>
 </html>

@@ -6,10 +6,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="./assets/fav.png" type="image/png">
-  <title>Eletrical рroxies v2</title>
+  <title>Eletrical рroxies [v2]</title>
 
 
-  <!-- Styles and fonts -->
   <link rel="stylesheet" href="./assets/style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +16,37 @@
     href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
     rel="stylesheet">
 
-  <!-- Scripts -->
   <script src="./uv/uv.bundle.js"></script>
   <script src="./uv/uv.config.js"></script>
   <script src="./assets/register-sw.js"></script>
   <script src = './assets/exploitscripts.js'></script>
+  <!--Put scripts related to cloaking here-->
+	<script>
+if (localStorage.getItem('cloaksite') === 'null') {
+  localStorage.setItem('cloaksite', 'https://classroom.google.com');
+}
+if ( window.self === window.top && localStorage.getItem('cloaked') == 'true') {
+	const popup = open("about:blank", "_blank")
+    const doc = popup.document
+    const iframe = doc.createElement("iframe")
+    const style = iframe.style
+    const link = doc.createElement("link")
+    const name = localStorage.getItem("name") || "My Drive - Google Drive"
+    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png"
+    doc.title = name
+    link.rel = "icon"
+    link.href = icon
+    iframe.src = location.href
+    style.position = "fixed"
+    style.top = style.bottom = style.left = style.right = 0
+    style.border = style.outline = "none"
+    style.width = style.height = "100%"
+    doc.head.appendChild(link)
+    doc.body.appendChild(iframe)
+    location.replace(localStorage.getItem('cloaksite'))
+}
 
+	</script>
 </head>
 
 <body>
