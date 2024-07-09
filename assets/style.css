@@ -1,12 +1,11 @@
-/* Reset and Basic Styles */
 * {
- margin: 0;
+   margin: 0;
  padding: 0;
- box-sizing: border-box; /* Ensures padding and border are included in element's total width and height */
+ box-sizing: border-box;
 }
 
 body {
- background-color: #222;
+   background-color: #222;
  color: white;
  height: 100vh;
  width: 100vw;
@@ -14,280 +13,163 @@ body {
  display: flex;
  justify-content: center;
  align-items: center;
- position: relative; /* Ensure the body has a position context */
+ position: relative; 
 }
 
-/* Container Styles */
 .container {
- display: flex;
- flex-wrap: wrap;
- justify-content: center;
- align-items: center;
- gap: 18px;
- padding: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 18px;
 }
 
-/* Header Styles */
 .header {
- font-size: 42px;
- display: flex;
- align-items: center;
- gap: 12px;
- background-color: white;
+  font-size: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color : #007bff;
 }
-
-/* Icon Styles */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1200px;
+}
 .icon {
- height: 42px;
- width: 42px;
+  height: 42px;
+  width: 42px;
 }
 
-/* Description Styles */
 .description {
- font-size: 16px;
- color: #afafaf;
- margin-top: 10px; 
- text-align: center; /* Ensure the text is centered */
+  font-size: 16px;
+  color: #007bff;
+  
 }
 
-/* Input Styles */
 .input {
- width: 100%;
- background-color: transparent;
- border: 1.5px rgb(74, 74, 74) solid;
- border-radius: 5px;
- font-size: 14px;
- padding: 12px;
- text-align: center;
- color: white;
- outline: none;
- transition: color 100ms ease-in-out; /* Added ease-in-out for smoother transition */
+  width: 250%;
+  background-color: transparent;
+  border: 1.5px #007bff solid;
+  font-size: 24px;
+  text-align: center;
+  color: #007bff;
+  outline: none;
+  border-radius: 50px; 
+  transition: color;
+  transition-duration: 100ms;
+  padding:10px;
 }
-
-.input:disabled {
- color: #757575;
+.input::placeholder {
+  color: #007bff;
+  font-size: 24px;
 }
-
-/* Logo Styles */
 .logo {
- height: 55px;
- width: 55px;
- will-change: filter;
- transition: filter 300ms ease-in-out; /* Added ease-in-out for smoother transition */
+  height: 55px;
+  width: 55px;
+  /* padding: 1.5em; */
+  will-change: filter;
+  transition: filter 300ms;
 }
 
 .logo:hover {
- filter: drop-shadow(0 0 24px #685dff);
+  filter: drop-shadow(0 0 24px #685dff);
 }
 
-/* Footer Styles */
 .footer {
- position: absolute;
- bottom: 0;
- width: 100%;
- display: flex;
- justify-content: space-between;
- align-items: center;
- box-sizing: border-box;
- flex-shrink: 0;
- padding: 18px 24px 30px; /* Combined padding for better readability */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
+  padding: 18px;
+  padding-left: 24px;
+  padding-right: 30px;
 }
 
 .footer a,
 .footer a:visited {
- cursor: pointer;
- color: white;
- font-size: 16px;
- text-decoration: none;
- text-underline-offset: 2.5px;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  text-decoration: none;
+  text-underline-offset: 2.5px;
 }
 
 .footer a:hover {
- text-decoration: underline;
+  text-decoration: underline;
 }
 
 .footer div {
- display: flex;
- gap: 26px;
+  display: flex;
+  gap: 26px;
 }
 
-/* Game Image Styles */
-.game-image {
- width: 128px;
- height: 128px;
- object-fit: cover;
- margin-bottom: 10px;
+.navbar {
+  overflow: hidden;
+  background-color: #007bff;
+  position: fixed; 
+  top: 0; 
+  width: 100%; 
 }
 
-/* Game Element Styles */
-.game {
- display: flex;
- flex-direction: column;
- align-items: center;
- margin-bottom: 20px;
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+/* Links and things because css is f  u   n   */
+.navbar a:hover {
+  background: #ddd;
+  color: #007bff;
 }
 
-.center-text {
- text-align: center;
+.button {
+  background-color: #007bff;
+  border: none;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 200px;
 }
 
-/* Header Container Styles */
-.header-container {
- display: flex;
- flex-direction: column;
- align-items: center;
- justify-content: center; /* Centers the children vertically */
- text-align: center; /* Ensures text within the container is centered */
- background-color: white;
+.button:hover {
+  background-color: #ffffff;
+  color: #007bff;
 }
 
-.games-button {
- position: absolute;
- top: 10px; /* Adjust this value as needed to position the button from the top edge */
- right: 10px; /* Adjust this value as needed to position the button from the left edge */
- font-family: 'IBM Plex Sans', sans-serif;
- font-weight: 500;
- color: #ffffff;
- background-color: #262262;
- padding: 10px 20px;
- border-radius: 5px;
- text-decoration: none;
- transition: background-color 0.3s ease;
+.button_nongui {
+  background-color: #007bff;
+  color: rgb(255, 255, 255);
+  padding: 15px 32px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 4px 2px;
+  border: none;
+  border-radius: 200px;
 }
 
-.games-button:hover {
- background-color: #4a4082; /* Slightly darker shade for hover effect */
-}
-
-.header1 {
- position: fixed;
- top: 0;
- left: 0;
- width: 100%;
- display: flex; /* Make the header a flex container */
- align-items: center; /* Center children vertically */
- justify-content: center; /* Center children horizontally */
- height: 60px; /* Adjust the height as needed */
- text-align: center; /* Ensure text is centered */
- z-index: 1000;
-}
-
-.header-content1 {
- display: flex;
- align-items: center;
- justify-content: center;
- width: 100%;
- height: 100%;
- background-color: white;
-}
-
-.ai-button {
- position: absolute;
- top: 10px; /* Adjust this value as needed to position the button from the top edge */
- right: 110px; /* Adjust this value as needed to position the button from the left edge */
- font-family: 'IBM Plex Sans', sans-serif;
- font-weight: 500;
- color: #ffffff;
- background-color: #262262;
- padding: 10px 20px;
- border-radius: 5px;
- text-decoration: none;
- transition: background-color 0.3s ease;
-}
-
-.ai-button:hover {
- background-color: #4a4082; /* Slightly darker shade for hover effect */
-}
-
-.bypass-button {
-    position: absolute;
-    top: 10px; 
-    left: 10px; 
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #0444bb;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.bypass-button:hover {
-    background-color: #4a4082; 
-}
-
-.bookmark-button {
-    font-family: 'IBM Plex Sans', sans-serif;
-    font-weight: 500;
-    color: #ffffff;
-    background-color: #0444bb;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.bookmark-button:hover {
-    background-color: #4a4082; 
-}
-
-.blank-window-button { 
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    background-color: #007bff; /* Nice blue button background */
-    transition: background-color 0.3s ease-in-out;
-    top: 10px; 
-    left: 10px; 
-}
-
-.blank-window-button {
-    color: #fff;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 20px;
-    border-radius: 30px;
-    background-color: #007bff; /* Nice blue button background */
-    transition: background-color 0.3s ease-in-out;
-    top: 20px; 
-    left: 10px; 
-}
-
-.apps-button {
- position: absolute;
- top: 10px; /* Adjust this value as needed to position the button from the top edge */
- right: 172px; /* Adjust this value as needed to position the button from the left edge */
- font-family: 'IBM Plex Sans', sans-serif;
- font-weight: 500;
- color: #ffffff;
- background-color: #262262;
- padding: 10px 20px;
- border-radius: 5px;
- text-decoration: none;
- transition: background-color 0.3s ease;
-}
-
-.apps-button:hover {
- background-color: #4a4082; /* Slightly darker shade for hover effect */
-}
-
-.exploit-page-button {
- position: absolute;
- top: 10px; /* Adjust this value as needed to position the button from the top edge */
- right: 172px; /* Adjust this value as needed to position the button from the left edge */
- font-family: 'IBM Plex Sans', sans-serif;
- font-weight: 500;
- color: #ffffff;
- background-color: #262262;
- padding: 10px 20px;
- border-radius: 5px;
- text-decoration: none;
- transition: background-color 0.3s ease;
-}
-
-.exploit-page-button:hover {
- background-color: #4a4082; /* Slightly darker shade for hover effect */
+.button_nongui:hover {
+  background-color: #ffffff;
+  color: #007bff;
 }
