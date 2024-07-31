@@ -1,67 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector(".input")
-  input.addEventListener("keydown", handleInput)
+  const searchBar = document.querySelector(".searchBar");
+  const ses = document.querySelector("#ses");
+
+  if (!searchBar || !ses) {
+      console.error("Search bar or search engine select element not found.");
+      return;
+  }
+
+  searchBar.addEventListener("keydown", handleInput);
 
   function handleInput(e) {
-    // We only want the function to run if the key pressed is the Enter key
-    if (e.key !== 'Enter') return;
+      if (e.key !== 'Enter') return;
 
-    // Run the formatSearch function on the current value of the input
-    const query = formatSearch(input.value)
+      const query = formatSearch(searchBar.value);
+      const selectedEngine = ses.value;
 
-    // Redirect to         [   uv prefix    ] + [   encoded search query   ]
-    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query)
+      localStorage.setItem('savedSearchEngine', selectedEngine);
+
+      let searchURL = `${selectedEngine}/search?q=${encodeURIComponent(query)}`;
+      switch(selectedEngine) {
+          case 'google':
+              searchURL = `https://www.google.com/search?q=${query}`;
+              break;
+          case 'bing':
+              searchURL = `https://www.bing.com/search?q=${query}`;
+              break;
+          case 'brave':
+              searchURL = `https://search.brave.com/search?q=${query}`;
+              break;
+          case 'duckduckgo':
+              searchURL = `https://duckduckgo.com/?q=${query}`;
+              break;
+          default:
+              searchURL = `https://www.google.com/search?q=${query}`;
+      }
+      window.location.href = __uv$config.prefix + __uv$config.encodeUrl(searchURL);
   }
-})
+});
 
 function formatSearch(query) {
-  // This function turns the inputted value into a Google search if it's not a normal URL
   try {
-    return new URL(query).toString()
+      return new URL(query).toString();
   } catch (e) { }
 
   try {
-    const url = new URL(`http://${query}`)
-    if (url.hostname.includes('.')) return url.toString()
+      const url = new URL(`http://${query}`);
+      if (url.hostname.includes('.')) return url.toString();
   } catch (e) { }
 
-  return new URL(`https://google.com/search?q=${query}`).toString()
+  return new URL(`${query}`).toString();
 }
-
-function Redir(url) {
-  window.location.href = url
-}
-
-// Search history spammer
-//REMOVED
-
-// Added BLNKR functionality
-function create(url) {
-  url_enc = Ultraviolet.codec.xor.encode(url)
-  url_enc_prefix = __uv$config.prefix + url_enc
-  var win = window.open();
-  win.document.body.style.margin = '0';
-  win.document.body.style.height = '100vh';
-  var iframe = win.document.createElement('iframe');
-  iframe.style.border = 'none';
-  iframe.style.width = '100%';
-  iframe.style.height = '100%';
-  iframe.style.margin = '0';
-  iframe.src = url_enc_prefix;
-  win.document.body.appendChild(iframe);
-}
-
-function create_blnkr() {
-  let x = prompt("Where would you like to go? \n At the moment google searches are not supported.")
-  create(x)
-}
-// Panic key
-let csite = localStorage.getItem('cloaksite');
-if (csite == null) {
-  csite = 'https://classroom.google.com'
-}
-document.addEventListener('keydown', function(event) {
-  if (event.key === '=') {
-        window.parent.location.href = csite;
-    }
-});
