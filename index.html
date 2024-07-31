@@ -1,76 +1,885 @@
 <!DOCTYPE html>
 <html lang="en">
+    <script src="./uv/uv.bundle.js"></script>
+    <script src="./uv/uv.config.js"></script>
+    <script src="./assets/register-sw.js"></script>
+    <script src="./assets/script.js" defer></script>
+    
+    <link rel="shortcut icon" href="./assets/fav.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
 <head>
- 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="./assets/fav.png" type="image/png">
-  <title>Eletrical рroxies [v2]</title>
+    <meta charset="UTF-8">
+    <title>Electrical v3</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #00152b;
+            color: orange; 
+            font-family: Arial, sans-serif;
+        }
+        
+        div {
+            text-align: center;
+        }
 
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
 
-  <link rel="stylesheet" href="./assets/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
-    rel="stylesheet">
+        @keyframes fadeOut {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        }
 
-  <script src="./uv/uv.bundle.js"></script>
-  <script src="./uv/uv.config.js"></script>
-  <script src="./assets/register-sw.js"></script>
-  <script src = './assets/exploitscripts.js'></script>
-  <!--Put scripts related to cloaking here-->
-	<script>
-if (localStorage.getItem('cloaksite') == null) {
-  localStorage.setItem('cloaksite', 'https://classroom.google.com');
-}
-if ( window.self === window.top && localStorage.getItem('cloaked') == 'true') {
-	const popup = open("about:blank", "_blank")
-    const doc = popup.document
-    const iframe = doc.createElement("iframe")
-    const style = iframe.style
-    const link = doc.createElement("link")
-    const name = localStorage.getItem("name") || "My Drive - Google Drive"
-    const icon = localStorage.getItem("icon") || "https://ssl.gstatic.com/docs/doclist/images/drive_2022q3_32dp.png" // S M O R T
-    doc.title = name
-    link.rel = "icon"
-    link.href = icon
-    iframe.src = location.href
-    style.position = "fixed"
-    style.top = style.bottom = style.left = style.right = 0
-    style.border = style.outline = "none"
-    style.width = style.height = "100%"
-    doc.head.appendChild(link)
-    doc.body.appendChild(iframe)
-    location.replace(localStorage.getItem('cloaksite')) // I dont think running a function each time is the best way but... 
-}
-	</script>
+        h1, p, .b {
+            animation-name: fadeIn;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
+        }
+
+        .q {
+            animation-name: none; 
+            animation-duration: none; 
+            animation-fill-mode: none;
+        }    
+
+        .b {
+            display: inline-block;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #666, #888);
+            color: white;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-size: 18px;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .b:hover {
+            background: linear-gradient(to right, #888, #999);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .m {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 400px;
+            padding: 40px;
+            background-color: #011224;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+            animation-fill-mode: forwards;
+        }
+
+        .m ul {
+            list-style-type: none;
+        }
+
+        .vl {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 30%;
+            width: 2px;
+            background-color: black;
+        }
+
+        .nt {
+            position: absolute;
+            top: 5px;
+            left: 15%;
+            transform: translateX(-50%);
+            color: white;
+        }
+
+        .b1 {
+            position: absolute;
+            bottom: 370px;
+            right: 505px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #141413, #0f0f0e);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            visibility: visible;
+            font-size: 19px;
+            height: 50px;
+            width: 150px;
+        }
+
+        .b1:hover {
+            background: linear-gradient(to right, #141414, #0f0f0f);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .b2 {
+            position: absolute;
+            bottom: 310px;
+            right: 505px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #141413, #0f0f0e);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            visibility: visible;
+            font-size: 19px;
+            height: 50px;
+            width: 150px;
+        }
+
+        .b2:hover {
+            background: linear-gradient(to right, #141414, #0f0f0f);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .b3 {
+            position: absolute;
+            bottom: 250px;
+            right: 505px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #141413, #0f0f0e);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            visibility: visible;
+            font-size: 19px;
+            height: 50px;
+            width: 150px;
+        }
+
+        .b3:hover {
+            background: linear-gradient(to right, #141414, #0f0f0f);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .b4 {
+            position: absolute;
+            bottom: 190px;
+            right: 505px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #141413, #0f0f0e);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            visibility: visible;
+            font-size: 19px;
+            height: 50px;
+            width: 150px;
+        }
+
+        .b4:hover {
+            background: linear-gradient(to right, #141414, #0f0f0f);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .b5 {
+            position: absolute;
+            bottom: 130px;
+            right: 505px;
+            padding: 12px 24px;
+            background: linear-gradient(to right, #141413, #0f0f0e);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            visibility: visible;
+            font-size: 19px;
+            height: 50px;
+            width: 150px;
+        }
+
+        .b5:hover {
+            background: linear-gradient(to right, #141414, #0f0f0f);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .ht {
+            position: absolute;
+            top: 5px;
+            left: 65%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .q {
+            position: absolute;
+            bottom: 360px; 
+            left: 65%; 
+            transform: translateX(-50%); 
+            color: orange;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            z-index: 99; 
+            display: none;
+        }
+
+        .searchBar {
+            padding: 10px;
+            border: 2px solid blue; 
+            border-radius: 25px;
+            font-size: 16px;
+            position: absolute; 
+            display: none; 
+            z-index: 101; 
+            animation-fill-mode: forwards; 
+            width: 500px; 
+            height: 20px; 
+            background-color: transparent;
+            color: orange;
+        }
+
+        #mi1 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 240px;
+        }
+
+        #mi2 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 320px;
+        }
+
+        #mi3 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+        }
+
+        #mi4 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 480px;
+        }
+
+        #mi5 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 560px;
+        }
+
+        .at {
+            position: absolute;
+            top: 5px;
+            left: 65%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        #mi1, #mi2, #mi3, #mi4, #mi5, #gmi1, #gmi2, #gmi3, #gmi4, #gmi5 {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        #mi1:hover, #mi2:hover, #mi3:hover, #mi4:hover, #mi5:hover, #gmi1:hover, #gmi2:hover, #gmi3:hover, #gmi4:hover, #gmi5:hover {
+            transform: scale(1.05);
+        }
+
+        #gmi1 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 240px;
+        }
+
+        #gmi2 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 320px;
+        }
+
+        #gmi3 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 400px;
+        }
+
+        #gmi4 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 480px;
+        }
+
+        #gmi5 {
+            display: none;
+            position: absolute;
+            top: 100px;
+            left: 560px;
+        }
+
+        .gt {
+            position: absolute;
+            top: 5px;
+            left: 65%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        #ses {
+            position: absolute;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            top: 100px;
+            left: 240px;
+            background-color: transparent;
+            color: orange;
+            border: 2px solid black;
+            display: none; 
+        }
+        .st {
+            position: absolute;
+            top: 5px;
+            left: 65%;
+            transform: translateX(-50%);
+            color: orange;
+            display: none;
+        }
+
+        #mobilefreindly {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .h {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 400px;
+            padding: 40px;
+            background-color: #011224;
+            color: white;
+            border: 2px solid black;
+            border-radius: 10px;
+            display: none;
+            z-index: 100;
+            animation-fill-mode: forwards;
+        }
+
+        .h ul {
+            list-style-type: none;
+        }
+
+        .het {
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .help {
+            position: absolute;
+            top: 40px;
+            left: 20%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .help2 {
+            position: absolute;
+            top: 70px;
+            left: 20%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .help3 {
+            position: absolute;
+            top: 100px;
+            left: 20%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .help4 {
+            position: absolute;
+            top: 130px;
+            left: 20%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+
+        .help5 {
+            position: absolute;
+            top: 160px;
+            left: 20%;
+            transform: translateX(-50%);
+            color: orange;
+        }
+    </style>
 </head>
-
 <body>
-   <div class="navbar">
-    <a href="/index.html" class="button">Home</a>
-    <a href="/games.html" class="button">Games</a>
-    <a href="/exploits.html" class="button">Exploits</a>
-    <a href="/ai.html" class="button">AI</a>
-    <a href="/apps.html" class="button">Apps</a>
-   </div>
-  <div class="container">
-    <h1 class="header">      
-      Electrical Proxies
-    </h1>
-    <input type="text" class="input" placeholder="Made by Play451, Theskid22, and Nobodycares_io">
-  </div>
+    <div>
+        <h1>Welcome to Electrical v3</h1>
+        <p>Press ALT+M to get started or press ALT+H to see a full list of keybinds</p>
+        <a class="b" href="https://github.com/electrical-development/Electrical-Proxy" target="_blank">Our Github</a>
+        <a class="b" href="https://dsc.gg/electrical-proxy" target="_blank">Join the Discord</a>
+        <i id="mobilefreindly" class="fas fa-bars" aria-label="Open Menu"></i>
+    </div>
+<input type="text" class="searchBar" placeholder="Search or enter a link">
+    <div class="overlay"></div>
+    <div class="h">
+        <h2 class="het">Help</h2>
+        <p class="help">ALT + H = Help menu</p>
+        <p class="help2">ALT + M = Normal menu</p>
+        <p class="help3">ALT + P = Proxy</p>
+        <p class="help4">ALT + C = About:blank cloaking</p>
+        <p class="help5">ALT + X = Panic key</p>
+        </div>
+<div class="m">
+    <h2 class="nt">Nav</h2>
+    <h2 class="ht">Home</h2>
+    <h2 class="at">Apps</h2>
+    <h2 class="gt">Games</h2>
+    <h2 class="st">Settings</h2>
+    <p class="q">no updates yet</p>
+    <img id="mi1" src="https://image.similarpng.com/very-thumbnail/2020/07/Youtube-logo-vector-PNG.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="mi2" src="https://static.vecteezy.com/system/resources/previews/006/892/625/non_2x/discord-logo-icon-editorial-free-vector.jpg" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="mi3" src="https://static.vecteezy.com/system/resources/previews/016/833/872/large_2x/github-logo-git-hub-icon-on-white-background-free-vector.jpg" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="mi4" src="https://static.vecteezy.com/system/resources/previews/006/057/994/non_2x/youtube-logo-on-transparent-background-free-vector.jpg" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="mi5" src="https://www.nvidia.com/content/nvidiaGDC/us/en_US/about-nvidia/legal-info/logo-brand-usage/_jcr_content/root/responsivegrid/nv_container_392921705/nv_container/nv_image.coreimg.100.630.png/1703060329053/nvidia-logo-vert.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    
+    <img id="gmi1" src="games2/1v1lol/logo.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="gmi2" src="games2/60sburgerrun/icon.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="gmi3" src="games2/2048/icon.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="gmi4" src="games2/achieveunlocked/icon.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    <img id="gmi5" src="games2/achieveunlocked2/icon.png" alt="Menu Icon" style="width: 64px; height: 64px;">
+    
+    <button class="b1">Home</button>
+    <button class="b2">Proxy</button>
+    <button class="b3">Apps</button>
+    <button class="b4">Games</button>
+    <button class="b5">Settings</button>
+    <div class="vl"></div>
 
-  <div class="footer">
-    <footer>
-      <a href="settings.html">Settings</a>
-      <a href="https://discord.gg/ffy4mcTczK">Discord</a>
-    </footer>
-  </div>
-<br>
-<br>
-<br>
-<script src="./assets/script.js" defer></script>
-</body>
+<select id="ses" name="search-engine">
+    <option value="google">Google</option>
+    <option value="bing">Bing</option>
+    <option value="brave">Brave</option>
+    <option value="duckduckgo">DuckDuckGo</option>
+
+<script>
+let isMenuVisible = false;
+let isSearchBarVisible = false;
+let isHelpVisible = false;
+
+document.getElementById('mobilefreindly').addEventListener('click', function() {
+    const menuIcon = document.getElementById('mobilefreindly');
+    const menu = document.querySelector('.m');
+    const searchBar = document.querySelector('.searchBar');
+    const overlay = document.querySelector('.overlay');
+    const appsHeading = document.querySelector('.at');
+    const gameHeading = document.querySelector('.gt');
+
+    isMenuVisible = !isMenuVisible;
+
+    if (isMenuVisible) {
+        menu.style.display = 'flex';
+        menu.style.animation = 'fadeIn 0.5s forwards';
+        searchBar.style.display = 'none';
+    } else {
+        menu.style.display = 'none';
+        menu.style.animation = 'fadeOut 0.5s forwards';
+    }
+    overlay.style.display = isMenuVisible ? 'block' : 'none';
+
+    appsHeading.style.display = isMenuVisible ? 'none' : 'block';
+    gameHeading.style.display = isMenuVisible ? 'none' : 'block';
+});
+
+document.addEventListener('keydown', function(event) {
+    const menuIcon = document.getElementById('mobilefreindly');
+    const menu = document.querySelector('.m');
+    const searchBar = document.querySelector('.searchBar');
+    const overlay = document.querySelector('.overlay');
+    const help = document.querySelector('.h');
+
+    if (event.altKey && event.key === 'm') {
+        const appsHeading = document.querySelector('.at');
+        const gameHeading = document.querySelector('.gt');
+
+        appsHeading.style.display = 'none';
+        gameHeading.style.display = 'none';
+        isMenuVisible = !isMenuVisible;
+        if (isMenuVisible) {
+            menu.style.display = 'flex';
+            menu.style.animation = 'fadeIn 0.5s forwards';
+            searchBar.style.display = 'none';
+        } else {
+            menu.style.display = 'none';
+            menu.style.animation = 'fadeOut 0.5s forwards';
+        }
+        overlay.style.display = isMenuVisible ? 'block' : 'none';
+    }
+
+    if (event.altKey && event.key === 'p') {
+        isSearchBarVisible = !isSearchBarVisible;
+        if (isSearchBarVisible) {
+            searchBar.style.display = 'flex';
+            searchBar.style.animation = 'fadeIn 0.5s forwards';
+            menu.style.display = 'none';
+        } else {
+            searchBar.style.display = 'none';
+            searchBar.style.animation = 'fadeOut 0.5s forwards';
+        }
+        overlay.style.display = isSearchBarVisible ? 'block' : 'none';
+    }
+
+    if (event.altKey && event.key === 'c') {
+        var win = window.open();
+        win.document.body.style.margin = '0';
+        win.document.body.style.height = '100vh';
+        var iframe = win.document.createElement('iframe');
+        iframe.style.border = 'none';
+        iframe.style.width = '100%';
+        iframe.style.height = '100%';
+        iframe.style.margin = '0';
+        iframe.src = 'index.html';
+        win.document.body.appendChild(iframe);
+    }
+
+    if (event.altKey && event.key === 'h') {
+        isHelpVisible = !isHelpVisible;
+        if (isHelpVisible) {
+            help.style.display = 'flex';
+            help.style.animation = 'fadeIn 0.5s forwards';
+            searchBar.style.display = 'none';
+        } else {
+            help.style.display = 'none';
+            help.style.animation = 'fadeOut 0.5s forwards';
+        }
+        overlay.style.display = isHelpVisible ? 'block' : 'none';
+    }
+
+    if (event.altKey && event.key === 'x') {
+        window.location.href = 'https://www.google.com';
+    }
+});
+
+
+function nigger() {
+    const menu = document.querySelector('.m');
+    const searchBar = document.querySelector('.searchBar');
+    const overlay = document.querySelector('.overlay');
+
+    isMenuVisible = !isMenuVisible;
+    isSearchBarVisible = !isSearchBarVisible;
+
+    if (isMenuVisible) {
+        menu.style.display = 'flex';
+        menu.style.animation = 'fadeIn 0.5s forwards';
+        searchBar.style.display = 'none';
+    } else {
+        menu.style.display = 'none';
+        menu.style.animation = 'fadeOut 0.5s forwards';
+    }
+
+    searchBar.style.display = isSearchBarVisible ? 'flex' : 'none';
+    searchBar.style.animation = isSearchBarVisible ? 'fadeIn 0.5s forwards' : 'fadeOut 0.5s forwards';
+    overlay.style.display = isMenuVisible || isSearchBarVisible ? 'block' : 'none';
+}
+
+function nigga() {
+    try {
+        const homeHeading = document.querySelector('.ht');
+        const noUpdatesParagraph = document.querySelector('.q');
+        const appsHeading = document.querySelector('.at');
+        const menuImage = document.getElementById('mi1');
+        const menuImage2 = document.getElementById('mi2');
+        const menuImage3 = document.getElementById('mi3');
+        const menuImage4 = document.getElementById('mi4');
+        const menuImage5 = document.getElementById('mi5');
+        const engineSwitcher = document.getElementById('ses');
+        const gameHeading = document.querySelector('.gt');
+        const gameImages = ['gmi1', 'gmi2', 'gmi3', 'gmi4', 'gmi5'];
+        const settingsHeading = document.querySelector('.st');
+
+        gameImages.forEach(id => {
+            const image = document.getElementById(id);
+            if (image) {
+                image.style.display = 'none';
+            }
+        });
+        
+        gameHeading.style.display = 'none';
+        homeHeading.style.display = 'none';
+        noUpdatesParagraph.style.display = 'none';
+        engineSwitcher.style.display = 'none';
+        settingsHeading.style.display = 'none';
+
+        menuImage.style.display = 'inline-block';
+        menuImage.style.opacity = '1';
+        menuImage.style.animation = 'fadeIn 0.5s forwards';
+
+        appsHeading.style.display = 'inline-block';
+        appsHeading.style.opacity = '1';
+        appsHeading.style.animation = 'fadeIn 0.5s forwards';
+
+        menuImage2.style.display = 'inline-block';
+        menuImage2.style.opacity = '1';
+        menuImage2.style.animation = 'fadeIn 0.5s forwards';
+
+        menuImage3.style.display = 'inline-block';
+        menuImage3.style.opacity = '1';
+        menuImage3.style.animation = 'fadeIn 0.5s forwards';
+
+        menuImage4.style.display = 'inline-block';
+        menuImage4.style.opacity = '1';
+        menuImage4.style.animation = 'fadeIn 0.5s forwards';
+
+        menuImage5.style.display = 'inline-block';
+        menuImage5.style.opacity = '1';
+        menuImage5.style.animation = 'fadeIn 0.5s forwards';
+
+        if (menuImage && menuImage2 && menuImage3 && menuImage4 && menuImage5) {
+            menuImage.addEventListener('click', function() {
+                window.location.href = "service/hvtrs8%2F-wuw%2Cymuvu%60e%2Ccmm-";
+            });
+
+            menuImage2.addEventListener('click', function() {
+                window.location.href = "service/hvtrs8%2F-dksaopd%2Ccmm";
+            });
+
+            menuImage3.addEventListener('click', function() {
+                window.location.href = "service/hvtrs8%2F-gktju%60.aoo";
+            });
+
+            menuImage4.addEventListener('click', function() {
+                window.location.href = "service/hvtrs8%2F-mwskc%2Cymuvu%60e%2Ccmm";
+            });
+
+            menuImage5.addEventListener('click', function() {
+                window.location.href = "service/hvtrs8%2F-pna%7B.eedopcgnmw%2Ccmm-mcln%2F";
+            });
+        } else {
+            throw new Error('mnf');
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+function nigga2() {
+    try {
+        const homeHeading = document.querySelector('.ht');
+        const noUpdatesParagraph = document.querySelector('.q');
+        const menuImages = ['mi1', 'mi2', 'mi3', 'mi4', 'mi5'];
+        const appsHeading = document.querySelector('.at');
+        const gameImages = ['gmi1', 'gmi2', 'gmi3', 'gmi4', 'gmi5'];
+        const gameHeading = document.querySelector('.gt');
+        const engineSwitcher = document.getElementById('ses');
+        const settingsHeading = document.querySelector('.st');
+
+        gameHeading.style.display = 'none';
+        engineSwitcher.style.display = 'none';
+        settingsHeading.style.display = 'none';
+
+        gameImages.forEach(id => {
+            const image = document.getElementById(id);
+            if (image) {
+                image.style.display = 'none';
+            }
+        });
+
+        menuImages.forEach(id => {
+            const image = document.getElementById(id);
+            if (image) {
+                image.style.display = 'none';
+            }
+        });
+        appsHeading.style.display = 'none';
+
+        homeHeading.style.display = 'inline-block';
+        homeHeading.style.opacity = '1';
+        homeHeading.style.animation = 'fadeIn 0.5s forwards';
+
+        noUpdatesParagraph.style.display = 'inline-block';
+        noUpdatesParagraph.style.opacity = '1';
+        noUpdatesParagraph.style.animation = 'fadeIn 0.5s forwards';
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+
+function nigga3() {
+    try {
+        const homeHeading = document.querySelector('.ht');
+        const noUpdatesParagraph = document.querySelector('.q');
+        const gameHeading = document.querySelector('.gt');
+        const appsHeading = document.querySelector('.at');
+        const gamemenuImage = document.getElementById('gmi1');
+        const gamemenuImage2 = document.getElementById('gmi2');
+        const gamemenuImage3 = document.getElementById('gmi3');
+        const gamemenuImage4 = document.getElementById('gmi4');
+        const gamemenuImage5 = document.getElementById('gmi5');
+        const menuImages = ['mi1', 'mi2', 'mi3', 'mi4', 'mi5'];
+        const engineSwitcher = document.getElementById('ses');
+        const settingsHeading = document.querySelector('.st');
+
+        menuImages.forEach(id => {
+            const image = document.getElementById(id);
+            if (image) {
+                image.style.display = 'none';
+            }
+        });
+
+        homeHeading.style.display = 'none';
+        noUpdatesParagraph.style.display = 'none';
+        appsHeading.style.display = 'none';
+        engineSwitcher.style.display = 'none';
+        settingsHeading.style.display = 'none';
+
+        gamemenuImage.style.display = 'inline-block';
+        gamemenuImage.style.opacity = '1';
+        gamemenuImage.style.animation = 'fadeIn 0.5s forwards';
+
+        gameHeading.style.display = 'inline-block';
+        gameHeading.style.opacity = '1';
+        gameHeading.style.animation = 'fadeIn 0.5s forwards';
+
+        gamemenuImage2.style.display = 'inline-block';
+        gamemenuImage2.style.opacity = '1';
+        gamemenuImage2.style.animation = 'fadeIn 0.5s forwards';
+
+        gamemenuImage3.style.display = 'inline-block';
+        gamemenuImage3.style.opacity = '1';
+        gamemenuImage3.style.animation = 'fadeIn 0.5s forwards';
+
+        gamemenuImage4.style.display = 'inline-block';
+        gamemenuImage4.style.opacity = '1';
+        gamemenuImage4.style.animation = 'fadeIn 0.5s forwards';
+
+        gamemenuImage5.style.display = 'inline-block';
+        gamemenuImage5.style.opacity = '1';
+        gamemenuImage5.style.animation = 'fadeIn 0.5s forwards';
+
+        if (gamemenuImage && gamemenuImage2 && gamemenuImage3 && gamemenuImage4 && gamemenuImage5) {
+            gamemenuImage.addEventListener('click', function() {
+                window.location.href = "games2/1v1lol/index.html";
+            });
+
+            gamemenuImage2.addEventListener('click', function() {
+                window.location.href = "games2/60sburgerrun/index.html";
+            });
+
+            gamemenuImage3.addEventListener('click', function() {
+                window.location.href = "games2/2048/index.html";
+            });
+
+            gamemenuImage4.addEventListener('click', function() {
+                window.location.href = "games2/achieveunlocked/index.html";
+            });
+
+            gamemenuImage5.addEventListener('click', function() {
+                window.location.href = "games2/achieveunlocked2/index.html";
+            });
+        } else {
+            throw new Error('mnf');
+        }
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+function nigga4() {
+    try {
+        const everything = ['mi1', 'mi2', 'mi3', 'mi4', 'mi5', 'gmi1', 'gmi2', 'gmi3', 'gmi4', 'gmi5', '.q', '.gt', '.at', '.ht'];
+        const gameHeading = document.querySelector('.gt');
+        const homeHeading = document.querySelector('.ht');
+        const appsHeading = document.querySelector('.at');
+        const settingsHeading = document.querySelector('.st');
+        const homeText = document.querySelector('.q');
+        const engineSwitcher = document.getElementById('ses');
+
+        gameHeading.style.display = 'none';
+        homeHeading.style.display = 'none';
+        appsHeading.style.display = 'none';
+        homeText.style.display = 'none';
+
+        engineSwitcher.style.display = 'inline-block';
+        engineSwitcher.style.opacity = '1';
+        engineSwitcher.style.animation = 'fadeIn 0.5s forwards';
+
+        settingsHeading.style.display = 'inline-block';
+        settingsHeading.style.opacity = '1';
+        settingsHeading.style.animation = 'fadeIn 0.5s forwards';
+        
+
+        const elementsToHide = everything.filter(id => !id.startsWith('b'));
+
+        elementsToHide.forEach(id => {
+            const image = document.getElementById(id);
+            if (image) {
+                image.style.display = 'none';
+            }
+        });
+    } catch (error) {
+        console.error(error.message);
+    }
+}
+
+document.querySelector('.b4').addEventListener('click', nigga3);
+document.querySelector('.b5').addEventListener('click', nigga4);
+document.querySelector('.b1').addEventListener('click', nigga2);
+document.querySelector('.b3').addEventListener('click', nigga);
+document.querySelector('.b2').addEventListener('click', nigger);
+
+document.addEventListener('DOMContentLoaded', () => {
+     const ses = document.querySelector('#ses');
+
+    const savedSearchEngine = localStorage.getItem('savedSearchEngine');
+    if (savedSearchEngine) {
+        ses.value = savedSearchEngine;
+    }
+
+    ses.addEventListener('change', () => {
+        localStorage.setItem('savedSearchEngine', ses.value);
+    });
+});
+</script>
 </html>
