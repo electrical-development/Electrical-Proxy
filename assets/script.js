@@ -39,14 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function formatSearch(query) {
-    try {
+    if (/^(?:http(s)?):\/\//i.test(query)) {
         return new URL(query).toString();
-    } catch (e) { }
+    }
 
     try {
-        const url = new URL(`http://${query}`);
-        if (url.hostname.includes('.')) return url.toString();
-    } catch (e) { }
-
-    return new URL(`${query}`).toString();
+        return new URL(`http://${query}`).toString();
+    } catch (e) {
+        try {
+            return new URL(`https://${query}`).toString();
+        } catch (e) {
+            return query;
+        }
+    }
 }
