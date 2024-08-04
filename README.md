@@ -7,7 +7,7 @@ Can be deployed on any static host, although the proxy part does not work with g
 - Games
 - Some exploits
 - About blank cloaking
-- Tab cloaking 
+- ~~Tab cloaking~~
 
 
 # Coming soon
