@@ -6,7 +6,7 @@
     <script src="./assets/script.js" defer></script>
 <head>
     <meta charset="UTF-8">
-    <title>Electrical v3</title>
+    <title>Electrical v3.1</title>
     <style>
         body {
             margin: 0;
@@ -333,11 +333,11 @@
             color: orange;
         }
 
-        #mi1, #mi2, #mi3, #mi4, #mi5, #gmi1, #gmi2, #gmi3, #gmi4, #gmi5 {
+        #mi1, #mi2, #mi3, #mi4, #mi5, #gmi1, #gmi2, #gmi3, #gmi4, #gmi5, #gmi7, #gmi2, #gmi8, #gmi9, #gmi10 {
             transition: transform 0.3s ease-in-out;
         }
 
-        #mi1:hover, #mi2:hover, #mi3:hover, #mi4:hover, #mi5:hover, #gmi1:hover, #gmi2:hover, #gmi3:hover, #gmi4:hover, #gmi5:hover {
+        #mi1:hover, #mi2:hover, #mi3:hover, #mi4:hover, #mi5:hover, #gmi1:hover, #gmi2:hover, #gmi3:hover, #gmi4:hover, #gmi5:hover,  #gmi6:hover, #gmi7:hover, #gmi8:hover, #gmi9:hover, #gmi10:hover {
             transform: scale(1.05);
         }
 
@@ -669,6 +669,7 @@ function nigga2() {
         const noUpdatesParagraph = document.querySelector('.q');
         const menuImages = ['mi1', 'mi2', 'mi3', 'mi4', 'mi5', 'mi6', 'mi7', 'mi8', 'mi9', 'mi10',];
         const appsHeading = document.querySelector('.at');
+        const gameHeading = document.querySelector('.gt');
         const gameImages = ['gmi1', 'gmi2', 'gmi3', 'gmi4', 'gmi5', 'gmi6', 'gmi7', 'gmi8', 'gmi9', 'gmi10'];
 
         gameImages.forEach(id => {
@@ -685,6 +686,7 @@ function nigga2() {
             }
         });
         appsHeading.style.display = 'none';
+        gameHeading.style.display = 'none';
 
         homeHeading.style.display = 'inline-block';
         homeHeading.style.opacity = '1';
