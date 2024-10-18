@@ -1,55 +1,29 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const searchBar = document.querySelector(".searchBar");
-    const ses = document.querySelector("#ses");
+  const input = document.querySelector(".searchbar")
+  input.addEventListener("keydown", handleInput)
 
-    if (!searchBar || !ses) {
-        console.error("Search bar or search engine select element not found.");
-        return;
-    }
+  function handleInput(e) {
+    // We only want the function to run if the key pressed is the Enter key
+    if (e.key !== 'Enter') return;
 
-    searchBar.addEventListener("keydown", handleInput);
+    // Run the formatSearch function on the current value of the input
+    const query = formatSearch(input.value)
 
-    function handleInput(e) {
-        if (e.key !== 'Enter') return;
-
-        const query = formatSearch(searchBar.value);
-        const selectedEngine = ses.value;
-
-        localStorage.setItem('savedSearchEngine', selectedEngine);
-
-        let searchURL = `${selectedEngine}/search?q=${encodeURIComponent(query)}`;
-        switch(selectedEngine) {
-            case 'google':
-                searchURL = `https://www.google.com/search?q=${query}`;
-                break;
-            case 'bing':
-                searchURL = `https://www.bing.com/search?q=${query}`;
-                break;
-            case 'brave':
-                searchURL = `https://search.brave.com/search?q=${query}`;
-                break;
-            case 'duckduckgo':
-                searchURL = `https://duckduckgo.com/?q=${query}`;
-                break;
-            default:
-                searchURL = `https://www.google.com/search?q=${query}`;
-        }
-        window.location.href = __uv$config.prefix + __uv$config.encodeUrl(searchURL);
-    }
-});
+    // Redirect to         [   uv prefix    ] + [   encoded search query   ]
+    window.location.href = __uv$config.prefix + __uv$config.encodeUrl(query)
+  }
+})
 
 function formatSearch(query) {
-    if (/^(?:http(s)?):\/\//i.test(query)) {
-        return new URL(query).toString();
-    }
+  // This function turns the inputted value into a Google search if it's not a normal URL
+  try {
+    return new URL(query).toString()
+  } catch (e) { }
 
-    try {
-        return new URL(`http://${query}`).toString();
-    } catch (e) {
-        try {
-            return new URL(`https://${query}`).toString();
-        } catch (e) {
-            return query;
-        }
-    }
+  try {
+    const url = new URL(`http://${query}`)
+    if (url.hostname.includes('.')) return url.toString()
+  } catch (e) { }
+
+  return new URL(`https://google.com/search?q=${query}`).toString()
 }
