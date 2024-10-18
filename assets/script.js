@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const input = document.querySelector(".searchbar")
+  const input = document.querySelector(".searchBar")
   input.addEventListener("keydown", handleInput)
 
   function handleInput(e) {
