@@ -14,3 +14,4 @@ Can be deployed on any static host, although the proxy part does not work with g
 - Proxy bookmarks
 - Bookmarklets on proxied sites 
 - Inspect/eruda (code exeuction)
+
