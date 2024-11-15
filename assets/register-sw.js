@@ -1,6 +1,6 @@
 // The service worker registration script
 // This must run successfully before Ultraviolet is available to use
-const BARE_SERVER = "https://bare.electrial.site"
+const BARE_SERVER = "https://bare.hyghj.eu.org"
 
 if ('serviceWorker' in navigator) {
   navigator.serviceWorker.register('./uv-sw.js', {
